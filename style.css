@@ -6,6 +6,9 @@
     margin: 0;
 }
 
+h3 {
+    text-decoration: none;
+}
 
 body { 
     line-height: 1.5;
@@ -109,6 +112,33 @@ a {
     border-radius: 12px;
     padding: 0;
     cursor: pointer;
+}
+
+.project_img {
+    width: 90%;
+    height: auto;
+    border: 3px solid #363636;
+    border-radius: 5%;
+}
+
+.project_header {
+    text-align: center;
+}
+
+.comparison_wrapper--showcase {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bullet_points {
+    margin-left: 12px;
+}
+
+.compared_website {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .iconbtn--actions:hover {
