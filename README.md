@@ -1,2 +1,2 @@
-# MAGC
-Lab work for COMPSCI 1XD3
+# MVCC
+In progress...
