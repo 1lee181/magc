@@ -1,0 +1,424 @@
+:root {
+    --mvcc-maroon: #7a003c;
+    --mvcc-gold: #fdbf57;
+    --mvcc-dark: #5a0028;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background-color: var(--mvcc-maroon);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: var(--mvcc-gold) !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-left: 15px;
+}
+
+.nav-link:hover {
+    color: var(--mvcc-gold) !important;
+}
+
+/* ── Page Header ── */
+.page-header {
+    background: linear-gradient(135deg, var(--mvcc-maroon) 0%, var(--mvcc-dark) 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+/* ── Section Styling ── */
+.section {
+    background: white;
+    border-left: 4px solid var(--mvcc-gold);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    color: var(--mvcc-maroon);
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--mvcc-gold);
+}
+
+.section h3 {
+    color: var(--mvcc-maroon);
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.section h4 {
+    color: var(--mvcc-dark);
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* ── Tables ── */
+.table {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.table thead {
+    background-color: var(--mvcc-maroon);
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* ── Team Member Cards ── */
+.team-member {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--mvcc-gold);
+}
+
+.team-member strong {
+    color: var(--mvcc-maroon);
+}
+
+/* ════════════════════════════════════════════════
+   WIREFRAME DIAGRAM STYLES
+   ════════════════════════════════════════════════ */
+
+.wireframe-diagram {
+    border: 2px dashed #bbb;
+    border-radius: 6px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    background: #fff;
+    font-size: 0.82rem;
+    color: #333;
+}
+
+/* Simulated nav bar */
+.wf-navbar {
+    background: #444;
+    color: #ddd;
+    padding: 6px 12px;
+    font-size: 0.76rem;
+    font-family: monospace;
+}
+
+/* Hero block */
+.wf-hero {
+    background: linear-gradient(135deg, var(--mvcc-maroon), var(--mvcc-dark));
+    color: white;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+/* Coloured section label strip */
+.wf-section-label {
+    background: var(--mvcc-maroon);
+    color: var(--mvcc-gold);
+    font-weight: bold;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+}
+
+.wf-header {
+    background: var(--mvcc-maroon);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.wf-body {
+    padding: 16px;
+    background: #f4f4f4;
+}
+
+/* Stats row */
+.wf-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.wf-stat-box {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.wf-stat-num {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--mvcc-maroon);
+}
+
+/* Timeline */
+.wf-timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid var(--mvcc-gold);
+}
+
+.wf-timeline-item {
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #444;
+    position: relative;
+}
+
+.wf-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    background: var(--mvcc-gold);
+    border-radius: 50%;
+}
+
+.wf-year {
+    font-weight: bold;
+    color: var(--mvcc-maroon);
+    margin-right: 6px;
+}
+
+/* Scrolling ribbon */
+.wf-ribbon {
+    display: flex;
+    gap: 16px;
+    overflow: hidden;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wf-ribbon-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #666;
+    min-width: 80px;
+}
+
+/* Cards */
+.wf-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.wf-card-img {
+    background: #ddd;
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 0.73rem;
+    margin-bottom: 8px;
+}
+
+/* Form elements */
+.wf-label {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+
+.wf-input {
+    height: 28px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+
+.wf-select {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 0.76rem;
+    color: #666;
+}
+
+.wf-btn {
+    background: var(--mvcc-maroon);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 0.83rem;
+    cursor: pointer;
+}
+
+.wf-hint {
+    font-size: 0.73rem;
+    color: #777;
+    margin-top: 3px;
+}
+
+.wf-error {
+    color: #c0392b;
+    font-size: 0.73rem;
+}
+
+.wf-ok {
+    color: #27ae60;
+    font-size: 0.73rem;
+}
+
+.wf-success {
+    background: #eafaf1;
+    border: 1px solid #27ae60;
+    color: #1e8449;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Exec avatar */
+.wf-avatar {
+    width: 56px;
+    height: 56px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.7rem;
+}
+
+/* Social icons */
+.wf-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.wf-social-icon {
+    background: var(--mvcc-maroon);
+    color: white;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* Grids */
+.wf-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.wf-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* ── Increment Timeline ── */
+.increment {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 4px solid var(--mvcc-maroon);
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.increment-phase {
+    font-weight: bold;
+    color: var(--mvcc-maroon);
+    font-size: 1.05rem;
+}
+
+.increment-date {
+    color: #b8860b;
+    font-weight: bold;
+}
+
+/* ── Footer ── */
+footer {
+    background-color: var(--mvcc-maroon);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: var(--mvcc-gold);
+    text-decoration: none;
+}
+
+/* ── Code ── */
+pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    border-left: 4px solid var(--mvcc-gold);
+}
+
+code {
+    color: var(--mvcc-maroon);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .wf-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .wf-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .wf-ribbon {
+        flex-wrap: wrap;
+    }
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+}

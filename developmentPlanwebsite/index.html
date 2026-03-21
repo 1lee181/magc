@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentureHub - Development Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">VentureHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/plan.html">Plan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/admin/login.php">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Building VentureHub</h1>
+        <p class="lead">Development Plan | CS 1XD3 | Due March 20, 2026</p>
+    </div>
+
+    <div class="container" style="max-width: 1000px;">
+
+        <!-- Section 1: Team, Client, and App Name -->
+        <div class="section">
+            <h2>The Project</h2>
+
+            <h3>VentureHub</h3>
+            <p>VentureHub is a single continuous-scroll web portal for the McMaster Venture Capital Club. Taking inspiration from sites like <a href="https://www.waterloovg.com/" target="_blank">Waterloo Ventures Group</a>, the page flows from a hero section through club history, past events, the exec team, a member sign-up form, a partners showcase, and a contact footer, all without navigating away from the page.</p>
+
+            <h3>The Client</h3>
+            <p><strong>McMaster Venture Capital Club (MVCC)</strong> is a student-run organization at McMaster University. The club connects student founders with investors, hosts pitch nights, and runs networking events throughout the academic year.</p>
+
+            <h3>The Team</h3>
+            <p>There are four of us. Each person is responsible for one vertical slice of the site from front to back, covering HTML, CSS, JavaScript, PHP, and the database for their feature.</p>
+            <div class="team-member">
+                <strong>Caden</strong> | Club History and Stats
+            </div>
+            <div class="team-member">
+                <strong>Matthew</strong> | Past Events, Partners/Startups Showcase, and Admin Login
+            </div>
+            <div class="team-member">
+                <strong>Gurehmat</strong> | General Member Sign-Up Interest Form
+            </div>
+            <div class="team-member">
+                <strong>Aleesha</strong> | Executive Members, Social Links, and Contact
+            </div>
+        </div>
+
+        <!-- Section 2: Purpose -->
+        <div class="section">
+            <h2>Why We Are Building This</h2>
+
+            <p>MVCC currently manages everything through spreadsheets, email chains, and scattered Google Drive folders. There is no single place for prospective members to learn about the club, sign up, or see what events have happened. There is also no easy way for admins to update the site without technical help.</p>
+
+            <p>VentureHub addresses those problems by giving the club one professional public-facing page. Prospective members can scroll through the club's history, browse past events, see who runs the club, and submit an interest form in a few minutes. Admins can update events, partners, and exec info through a password-protected panel rather than editing spreadsheets. The partners ribbon and exec cards help the club look credible to investors and recruits. The design uses MVCC's official red, white, and gold colours throughout.</p>
+
+            <p>The specific features and structure of the site came directly from feedback gathered in a meeting with MVCC leadership, described in the Client Feedback section below.</p>
+        </div>
+
+        <!-- Section 3: Data Description -->
+        <div class="section">
+            <h2>The Database</h2>
+
+            <p>There are 5 tables. For each one we explain why it is needed, what information it stores, and list every field with its data type, noting the primary key.</p>
+
+            <h3>members</h3>
+            <p>Stores submissions from the general member interest form. The email column is UNIQUE to prevent duplicate sign-ups.</p>
+            <table class="table table-bordered table-sm">
+                <thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>id</strong></td><td>INT</td><td>Primary Key, AUTO_INCREMENT</td></tr>
+                    <tr><td>name</td><td>VARCHAR(100)</td><td>Full name, NOT NULL</td></tr>
+                    <tr><td>email</td><td>VARCHAR(255)</td><td>UNIQUE, NOT NULL</td></tr>
+                    <tr><td>program</td><td>VARCHAR(100)</td><td>Academic program, e.g. "Engineering"</td></tr>
+                    <tr><td>year</td><td>TINYINT</td><td>Year of study, 1 through 5</td></tr>
+                    <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td></tr>
+                </tbody>
+            </table>
+
+            <h3>past_events</h3>
+            <p>Stores MVCC's history of events so they can be displayed as cards on the public site and managed through the admin panel.</p>
+            <table class="table table-bordered table-sm">
+                <thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>id</strong></td><td>INT</td><td>Primary Key, AUTO_INCREMENT</td></tr>
+                    <tr><td>title</td><td>VARCHAR(150)</td><td>Event name, NOT NULL</td></tr>
+                    <tr><td>description</td><td>TEXT</td><td>Full event details</td></tr>
+                    <tr><td>event_date</td><td>DATE</td><td>Date the event took place</td></tr>
+                    <tr><td>location</td><td>VARCHAR(200)</td><td>Venue name or "Online"</td></tr>
+                    <tr><td>photo_url</td><td>VARCHAR(500)</td><td>Optional path to an event photo</td></tr>
+                    <tr><td>created_at</td><td>DATETIME</td><td>DEFAULT CURRENT_TIMESTAMP</td></tr>
+                </tbody>
+            </table>
+
+            <h3>partners</h3>
+            <p>Stores partner and startup records that power the scrolling ribbon on the public site. The display_order column controls the sequence of entries in the ribbon.</p>
+            <table class="table table-bordered table-sm">
+                <thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>id</strong></td><td>INT</td><td>Primary Key, AUTO_INCREMENT</td></tr>
+                    <tr><td>name</td><td>VARCHAR(100)</td><td>Company or startup name, NOT NULL</td></tr>
+                    <tr><td>logo_url</td><td>VARCHAR(500)</td><td>Path or URL to the logo image</td></tr>
+                    <tr><td>website_url</td><td>VARCHAR(500)</td><td>Links out to the partner's website</td></tr>
+                    <tr><td>description</td><td>TEXT</td><td>Short description of the partner</td></tr>
+                    <tr><td>display_order</td><td>INT</td><td>Controls sort order in the ribbon, DEFAULT 0</td></tr>
+                </tbody>
+            </table>
+
+            <h3>executives</h3>
+            <p>Stores exec team records for the public-facing team section. Includes social media links and a display_order column so admins can control which exec appears first.</p>
+            <table class="table table-bordered table-sm">
+                <thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>id</strong></td><td>INT</td><td>Primary Key, AUTO_INCREMENT</td></tr>
+                    <tr><td>name</td><td>VARCHAR(100)</td><td>Full name, NOT NULL</td></tr>
+                    <tr><td>role</td><td>VARCHAR(100)</td><td>e.g. "President" or "VP Finance"</td></tr>
+                    <tr><td>bio</td><td>TEXT</td><td>Short biography</td></tr>
+                    <tr><td>photo_url</td><td>VARCHAR(500)</td><td>Path to headshot image</td></tr>
+                    <tr><td>linkedin_url</td><td>VARCHAR(500)</td><td>LinkedIn profile URL, nullable</td></tr>
+                    <tr><td>instagram_url</td><td>VARCHAR(500)</td><td>Instagram profile URL, nullable</td></tr>
+                    <tr><td>display_order</td><td>INT</td><td>Controls card sort order, DEFAULT 0</td></tr>
+                </tbody>
+            </table>
+
+            <h3>admins</h3>
+            <p>Stores credentials for admin users. Passwords are stored as bcrypt hashes using PHP's password_hash() function. Plain-text passwords are never stored.</p>
+            <table class="table table-bordered table-sm">
+                <thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>id</strong></td><td>INT</td><td>Primary Key, AUTO_INCREMENT</td></tr>
+                    <tr><td>username</td><td>VARCHAR(50)</td><td>UNIQUE, NOT NULL</td></tr>
+                    <tr><td>password_hash</td><td>VARCHAR(255)</td><td>bcrypt hash via password_hash(), NOT NULL</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: App Functions -->
+        <div class="section">
+            <h2>Functions Performed by the App</h2>
+
+            <p>For each function that affects the database, we note whether it is a SELECT, INSERT, UPDATE, or DELETE. Client-side functions are noted where there is no database interaction.</p>
+
+            <h3>Club History and Stats (Caden)</h3>
+            <p>Entirely client-side. JavaScript uses IntersectionObserver to trigger a CSS scroll-reveal on each timeline entry and animate the stats counters when they come into view. No database interaction. Content is hardcoded in HTML.</p>
+
+            <h3>Past Events (Matthew)</h3>
+            <p>Public view: PHP runs a <strong>SELECT</strong> on past_events ordered by event_date descending and renders the results as cards showing the title, date, location, and photo. Admin panel: adding an event runs an <strong>INSERT</strong>, editing runs an <strong>UPDATE</strong>, and removing an event runs a <strong>DELETE</strong>. All admin operations use AJAX so the page does not reload.</p>
+
+            <h3>Partners and Startups Ribbon (Matthew)</h3>
+            <p>Public view: PHP runs a <strong>SELECT</strong> on partners ordered by display_order and renders the results as logo tiles inside a CSS marquee animation. Each logo links out to the partner's website. Admin panel: <strong>INSERT</strong>, <strong>UPDATE</strong>, and <strong>DELETE</strong> partner records; <strong>UPDATE</strong> display_order to reorder the ribbon. All via AJAX.</p>
+
+            <h3>Member Interest Sign-Up Form (Gurehmat)</h3>
+            <p>JavaScript validates required fields and email format on the client side. An AJAX call checks for a duplicate email via <strong>SELECT</strong> on the members table and shows an inline error if one is found. On a clean submission, PHP runs an <strong>INSERT</strong> into members and POSTs the data to the MVCC Google Sheet via the Google Sheets API. A confirmation message is shown on success.</p>
+
+            <h3>Executive Members (Aleesha)</h3>
+            <p>Public view: PHP runs a <strong>SELECT</strong> on executives ordered by display_order and renders cards showing the photo, name, role, bio, and LinkedIn and Instagram links. Admin panel: <strong>INSERT</strong>, <strong>UPDATE</strong>, <strong>DELETE</strong> exec records, and <strong>UPDATE</strong> display_order to reorder cards. All via AJAX.</p>
+
+            <h3>Contact Us (Aleesha)</h3>
+            <p>A mailto anchor tag at the bottom of the page opens the visitor's email client addressed to MVCC's contact email. Client-side only, no database interaction.</p>
+
+            <h3>Admin Login (Matthew)</h3>
+            <p>PHP runs a <strong>SELECT</strong> on the admins table for the submitted username, then calls password_verify() against the stored hash. On success, PHP sets $_SESSION['admin_id']. All admin panel pages check for this session variable before rendering. Logout calls session_destroy().</p>
+        </div>
+
+        <!-- Section 5: Team Roles -->
+        <div class="section">
+            <h2>Roles of Team Members</h2>
+
+            <p>The work is divided into vertical slices so that each person owns their feature completely from the HTML through to the database. Nobody is assigned just one layer. The rubric requires each member to write JavaScript and PHP, and all four features involve both.</p>
+
+            <h3>Caden | Club History and Stats</h3>
+            <p>Responsible for the club history section, including the Year 1 to 5 timeline and the animated stats strip. Writes the JavaScript IntersectionObserver logic and the CSS scroll-reveal animations. No PHP or database work is required for this section since all content is hardcoded.</p>
+
+            <h3>Matthew | Past Events, Partners Ribbon, and Admin Login</h3>
+            <p>Responsible for the past events section, the scrolling partners ribbon, and both admin CRUD panels. Also responsible for the admin login page, the session management logic, and the session guard function that protects all admin routes.</p>
+
+            <h3>Gurehmat | General Member Interest Sign-Up Form</h3>
+            <p>Responsible for the interest form, including client-side JavaScript validation, the AJAX duplicate email check, the PHP handler that inserts into the members table and posts to the Google Sheets API, and the inline confirmation and error messages.</p>
+
+            <h3>Aleesha | Executive Members, Social Links, and Contact</h3>
+            <p>Responsible for the exec team card section and the admin panel for managing exec records, including reordering by display_order. Also responsible for the Contact Us section at the bottom of the page.</p>
+        </div>
+
+        <!-- Section 6: Wireframes -->
+        <div class="section">
+            <h2>Wireframes</h2>
+
+            <p>The site is one continuous scroll. Each wireframe below shows the layout of one section of the page. Each team member produced a wireframe for their own piece.</p>
+
+            <!-- Hero / Nav -->
+            <h3>Hero and Navigation (Shared)</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-navbar">[VentureHub]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [History] [Events] [Team] [Join] [Partners] [Contact]</div>
+                <div class="wf-hero">
+                    <div style="font-size:1.3rem; font-weight:bold; margin-bottom:8px;">McMaster Venture Capital Club</div>
+                    <div style="font-size:0.85rem; opacity:0.85; margin-bottom:14px;">Connecting students with investors. Building the next generation of founders.</div>
+                    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                        <div class="wf-btn" style="display:inline-block; padding:7px 18px;">Join MVCC</div>
+                        <div class="wf-btn" style="display:inline-block; padding:7px 18px; background:#fdbf57; color:#7a003c;">Our Story</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Club History (Caden) -->
+            <h3>Club History and Stats | Caden</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-section-label">CLUB HISTORY AND STATS</div>
+                <div class="wf-body">
+                    <div class="wf-stats-row">
+                        <div class="wf-stat-box"><div class="wf-stat-num">200+</div><div class="wf-hint">Members</div></div>
+                        <div class="wf-stat-box"><div class="wf-stat-num">5</div><div class="wf-hint">Years Active</div></div>
+                        <div class="wf-stat-box"><div class="wf-stat-num">30+</div><div class="wf-hint">Events Hosted</div></div>
+                        <div class="wf-stat-box"><div class="wf-stat-num">15+</div><div class="wf-hint">Partners</div></div>
+                    </div>
+                    <div class="wf-timeline">
+                        <div class="wf-timeline-item"><span class="wf-year">Year 1</span> Founded by 4 students. First pitch night hosted.</div>
+                        <div class="wf-timeline-item"><span class="wf-year">Year 2</span> Grew to 50 members. First corporate partner onboarded.</div>
+                        <div class="wf-timeline-item"><span class="wf-year">Year 3</span> Ran 3 investor panels. Expanded exec team to 10.</div>
+                        <div class="wf-timeline-item"><span class="wf-year">Year 4</span> Launched startup mentorship program. Reached 100+ members.</div>
+                        <div class="wf-timeline-item"><span class="wf-year">Year 5</span> VentureHub portal launched. 200+ members and 15 active partners.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Events (Matthew) -->
+            <h3>Past Events | Matthew</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-section-label">PAST EVENTS</div>
+                <div class="wf-body">
+                    <div class="wf-grid-3">
+                        <div class="wf-card">
+                            <div class="wf-card-img">[Event Photo]</div>
+                            <strong>Pitch Night 2024</strong>
+                            <div class="wf-hint">Nov 15, 2024 | MDCL 1305</div>
+                            <div class="wf-hint">Students pitched to a panel of real investors.</div>
+                        </div>
+                        <div class="wf-card">
+                            <div class="wf-card-img">[Event Photo]</div>
+                            <strong>Investor Workshop</strong>
+                            <div class="wf-hint">Feb 8, 2025 | Online</div>
+                            <div class="wf-hint">Deep dive into term sheets and valuations.</div>
+                        </div>
+                        <div class="wf-card">
+                            <div class="wf-card-img">[Event Photo]</div>
+                            <strong>Networking Social</strong>
+                            <div class="wf-hint">Mar 20, 2025 | CIBC Hall</div>
+                            <div class="wf-hint">Annual mixer with local VC professionals.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partners Ribbon (Matthew) -->
+            <h3>Partners and Startups Scrolling Ribbon | Matthew</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-section-label">OUR PARTNERS AND STARTUPS</div>
+                <div class="wf-body">
+                    <div style="font-size:0.73rem; color:#999; text-align:center; margin-bottom:8px;">Continuously scrolling left. Each logo links to the partner's website.</div>
+                    <div class="wf-ribbon">
+                        <div class="wf-ribbon-item">[Logo A]<br><small>Partner A</small></div>
+                        <div class="wf-ribbon-item">[Logo B]<br><small>Startup B</small></div>
+                        <div class="wf-ribbon-item">[Logo C]<br><small>Partner C</small></div>
+                        <div class="wf-ribbon-item">[Logo D]<br><small>Startup D</small></div>
+                        <div class="wf-ribbon-item">[Logo E]<br><small>Partner E</small></div>
+                        <div class="wf-ribbon-item">[Logo F]<br><small>Startup F</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sign-Up Form (Gurehmat) -->
+            <h3>Member Interest Sign-Up Form | Gurehmat</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-section-label">JOIN MVCC</div>
+                <div class="wf-body" style="display:flex; justify-content:center;">
+                    <div class="wf-card" style="max-width:460px; width:100%;">
+                        <div style="font-weight:bold; text-align:center; margin-bottom:12px; color:#7a003c;">General Member Interest Form</div>
+                        <div class="wf-label">Full Name *</div>
+                        <div class="wf-input"></div>
+                        <div class="wf-label">Email Address *</div>
+                        <div class="wf-input"></div>
+                        <div class="wf-hint wf-error">This email is already registered.</div>
+                        <div class="wf-hint wf-ok">Email is available.</div>
+                        <div class="wf-label">Program *</div>
+                        <div class="wf-input"></div>
+                        <div class="wf-label">Year of Study *</div>
+                        <div class="wf-input wf-select">[ 1st Year ]</div>
+                        <div class="wf-label">Why do you want to join? (optional)</div>
+                        <div class="wf-input" style="height:50px;"></div>
+                        <div class="wf-btn">Submit</div>
+                        <div class="wf-success" style="margin-top:10px;">Thanks for submitting. We will be in touch soon.</div>
+                        <div class="wf-hint" style="text-align:center; margin-top:6px; font-size:0.7rem;">Responses are saved to the database and to the MVCC Google Sheet.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exec Team (Aleesha) -->
+            <h3>Executive Members and Social Links | Aleesha</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-section-label">MEET THE TEAM</div>
+                <div class="wf-body">
+                    <div class="wf-grid-3">
+                        <div class="wf-card" style="text-align:center;">
+                            <div class="wf-avatar">[Photo]</div>
+                            <strong>Member 1</strong>
+                            <div class="wf-hint" style="color:#7a003c; font-weight:600;">President</div>
+                            <div class="wf-hint">Short bio for Member 1 goes here.</div>
+                            <div class="wf-social-row">
+                                <span class="wf-social-icon">LinkedIn</span>
+                                <span class="wf-social-icon">Instagram</span>
+                            </div>
+                        </div>
+                        <div class="wf-card" style="text-align:center;">
+                            <div class="wf-avatar">[Photo]</div>
+                            <strong>Member 2</strong>
+                            <div class="wf-hint" style="color:#7a003c; font-weight:600;">VP Finance</div>
+                            <div class="wf-hint">Short bio for Member 2 goes here.</div>
+                            <div class="wf-social-row">
+                                <span class="wf-social-icon">LinkedIn</span>
+                                <span class="wf-social-icon">Instagram</span>
+                            </div>
+                        </div>
+                        <div class="wf-card" style="text-align:center;">
+                            <div class="wf-avatar">[Photo]</div>
+                            <strong>Member 3</strong>
+                            <div class="wf-hint" style="color:#7a003c; font-weight:600;">Treasurer</div>
+                            <div class="wf-hint">Short bio for Member 3 goes here.</div>
+                            <div class="wf-social-row">
+                                <span class="wf-social-icon">LinkedIn</span>
+                                <span class="wf-social-icon">Instagram</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Footer (Aleesha) -->
+            <h3>Contact Us Footer | Aleesha</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-body" style="background:#7a003c; color:white; text-align:center; padding:24px; border-radius:0 0 4px 4px;">
+                    <div style="font-size:1.05rem; font-weight:bold; margin-bottom:6px;">Get In Touch</div>
+                    <div style="font-size:0.82rem; opacity:0.85; margin-bottom:14px;">Have a question or want to get involved? Send us an email.</div>
+                    <div class="wf-btn" style="display:inline-block; padding:7px 22px; background:#fdbf57; color:#7a003c;">Contact Us</div>
+                    <div style="font-size:0.73rem; opacity:0.65; margin-top:12px;">mvcc@mcmaster.ca | instagram.com/mvcc | linkedin.com/company/mvcc</div>
+                    <div style="font-size:0.7rem; opacity:0.45; margin-top:8px;">2026 McMaster Venture Capital Club. All rights reserved.</div>
+                </div>
+            </div>
+
+            <!-- Admin Login (Matthew) -->
+            <h3>Admin Login Page | Matthew</h3>
+            <div class="wireframe-diagram">
+                <div class="wf-navbar">[VentureHub Admin]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Back to Site]</div>
+                <div class="wf-header">Admin Portal</div>
+                <div class="wf-body" style="display:flex; justify-content:center; padding:20px 0;">
+                    <div class="wf-card" style="width:300px;">
+                        <div style="text-align:center; font-weight:bold; margin-bottom:12px;">Admin Login</div>
+                        <div class="wf-label">Username</div>
+                        <div class="wf-input"></div>
+                        <div class="wf-label">Password</div>
+                        <div class="wf-input"></div>
+                        <div class="wf-error" style="font-size:0.73rem; margin-bottom:6px;">Invalid username or password.</div>
+                        <div class="wf-btn">Log In</div>
+                        <div class="wf-hint" style="text-align:center; margin-top:8px;">Session persists until logout.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- END wireframes section -->
+
+        <!-- Section 7: Increments -->
+        <div class="section">
+            <h2>Increments</h2>
+
+            <p>We are delivering in three increments. Each one lists what each team member is shipping by that date.</p>
+
+            <div class="increment">
+                <div class="increment-phase">Increment 1 <span class="increment-date">due Lab 12.2</span></div>
+                <p style="margin-top:10px; margin-bottom:6px;">Foundation. All five database tables are created, the page skeleton with anchor navigation is live, and admin login is working.</p>
+                <ul>
+                    <li><strong>Matthew:</strong> Admin login page. SELECT on admins, bcrypt verify, session create and destroy. Admins table seeded.</li>
+                    <li><strong>Gurehmat:</strong> Interest form shell with HTML layout and client-side JS validation. Members table created.</li>
+                    <li><strong>Aleesha:</strong> Exec section shell. Executives table created, static placeholder cards with social icon anchors.</li>
+                    <li><strong>Caden:</strong> Club history section shell. Static Year 1 to 5 timeline in HTML and CSS, hardcoded stats row, JS IntersectionObserver stub.</li>
+                </ul>
+            </div>
+
+            <div class="increment">
+                <div class="increment-phase">Increment 2 <span class="increment-date">due before Final Delivery</span></div>
+                <p style="margin-top:10px; margin-bottom:6px;">Core features. All public sections pull live data and all admin CRUD panels are functional.</p>
+                <ul>
+                    <li><strong>Matthew:</strong> Past events section SELECT from past_events. Admin panel INSERT, UPDATE, DELETE via AJAX. Partners ribbon SELECT from partners. Admin panel INSERT, UPDATE, DELETE, and display_order reordering.</li>
+                    <li><strong>Gurehmat:</strong> AJAX email check via SELECT on members. Form submission INSERTs into members and POSTs to Google Sheets API. Inline confirmation and error messages.</li>
+                    <li><strong>Aleesha:</strong> Exec cards SELECT from executives ordered by display_order. Admin panel INSERT, UPDATE, DELETE, and reordering via AJAX. Contact section with mailto link live.</li>
+                    <li><strong>Caden:</strong> Scroll-reveal and counter animations complete. Timeline updated with real MVCC milestones confirmed by the client.</li>
+                </ul>
+            </div>
+
+            <div class="increment">
+                <div class="increment-phase">Increment 3 <span class="increment-date">due Final Delivery (exam period)</span></div>
+                <p style="margin-top:10px; margin-bottom:6px;">Polish, security review, mobile testing, and final sign-off from MVCC.</p>
+                <ul>
+                    <li><strong>Matthew:</strong> SQL injection prevention reviewed. Session auth guard confirmed on all admin routes. Ribbon tested on mobile.</li>
+                    <li><strong>Gurehmat:</strong> Google Sheets edge case handling and input sanitization complete. Form tested on mobile.</li>
+                    <li><strong>Aleesha:</strong> Social links tested across browsers. Exec card layout confirmed on mobile.</li>
+                    <li><strong>Caden:</strong> Animations tested on mobile. Stats numbers confirmed with MVCC. Smooth-scroll and anchor offsets tuned.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 8: Client Feedback -->
+        <div class="section">
+            <h2>Client Feedback</h2>
+
+            <p>We met with MVCC's President and VP of Operations on March 18, 2026 to walk through our original multi-page plan. The meeting produced the following feedback, which we used to revise the plan into its current form.</p>
+
+            <ul>
+                <li><strong>Single continuous page.</strong> They did not want users navigating across multiple pages and pointed to the Waterloo Ventures Group site as a reference. We switched the architecture to a single-scroll page with anchor navigation.</li>
+                <li><strong>Content priorities.</strong> They identified the five sections they care most about: club history and stats, past events, exec members with social links, the sign-up form, and partners and startups. We restructured the plan around those.</li>
+                <li><strong>Colour scheme.</strong> They confirmed MVCC red (#7A003C) and gold (#FDBF57) on white, which we have applied throughout the CSS.</li>
+                <li><strong>Scrolling partners ribbon.</strong> They referenced webapp.io and asked for a similar continuously scrolling ribbon for their partners and startups. Matthew is building a CSS marquee animation pulling from the partners table.</li>
+                <li><strong>Google Sheets integration.</strong> Their ops team works out of Google Sheets and asked that form submissions go there as well as the database. Gurehmat added the Google Sheets API call to the form handler.</li>
+                <li><strong>Social links on exec cards.</strong> They asked for LinkedIn and Instagram links to be clickable on each exec's card. We added linkedin_url and instagram_url to the executives table and Aleesha is rendering the links on each card.</li>
+                <li><strong>Contact at the bottom.</strong> They asked for a simple mailto link in the footer rather than a separate contact page. Aleesha is building this as part of her section.</li>
+            </ul>
+        </div>
+
+    </div><!-- END container -->
+
+    <footer>
+        <p>&copy; 2026 McMaster Venture Capital Club. All rights reserved.</p>
+        <p><a href="/">Back to Home</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
