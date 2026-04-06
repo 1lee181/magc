@@ -1,0 +1,151 @@
+/* ============================================================
+   VentureHub — Admin Styles
+   Clean, functional, inherits warm palette
+   ============================================================ */
+
+body.admin-body {
+  background: color-mix(in srgb, var(--sand) 10%, #f5f3ee);
+}
+
+/* ── Admin Navbar ── */
+.admin-navbar {
+  background: var(--maroon2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 52px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-navbar .navbar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--sand);
+}
+
+.admin-nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.admin-nav-links a { color: rgba(242,240,216,0.65); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+.admin-nav-links a:hover { color: var(--sand); }
+
+/* ── Admin Container ── */
+.admin-container {
+  max-width: 920px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.admin-page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--maroon);
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Admin Card ── */
+.admin-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.admin-card-header {
+  background: var(--maroon);
+  color: var(--cream);
+  padding: 0.65rem 1.2rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-card-body { padding: 1.4rem; }
+
+/* ── Admin Table ── */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin-table th {
+  background: color-mix(in srgb, var(--sand) 20%, var(--cream));
+  color: var(--muted);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-table td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  vertical-align: middle;
+  color: var(--ink);
+}
+
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover td { background: color-mix(in srgb, var(--sand) 10%, var(--cream)); }
+
+.admin-table .actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+/* ── Admin Form Grid ── */
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 1.2rem;
+}
+
+.admin-form-grid .full { grid-column: 1 / -1; }
+
+/* ── Login Page ── */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--sand) 12%, var(--cream));
+}
+
+.login-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-logo span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--maroon);
+}
+
+.login-box h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  text-align: center;
+  margin-bottom: 2rem;
+}
