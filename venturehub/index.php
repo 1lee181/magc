@@ -198,7 +198,7 @@ $ribbonItems = array_merge($partners, $partners);
           <?php foreach ($execs as $ex): ?>
             <div class="exec-card">
               <?php if (!empty($ex['photo_url'])): ?>
-                <div class="img-hover-wrap" style="width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;border:2px solid var(--sand);">
+                <div class="img-hover-wrap" style="width:120px;height:120px;border-radius:50%;margin:0 auto 1rem;border:2px solid var(--sand);">
                   <img class="exec-photo" style="border:none;margin:0;" src="<?= htmlspecialchars($ex['photo_url']) ?>" alt="<?= htmlspecialchars($ex['name']) ?>">
                   <div class="img-hover-overlay"></div>
                 </div>
