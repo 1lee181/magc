@@ -18,7 +18,7 @@ $ribbonItems = array_merge($partners, $partners);
   <title>MVCC | McMaster Venture Capital Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/png" href="images/mvcc-logo.png">
+  <link rel="icon" type="image/png" href="images/mvcclogotab.jpg">
   <link rel="stylesheet" href="<?= BASE ?>/css/style.css">
 </head>
 
@@ -79,7 +79,7 @@ $ribbonItems = array_merge($partners, $partners);
         <div class="hero-frame-wrap">
           <div class="hero-frame-border"></div>
           <div class="img-hover-wrap hero-portrait">
-            <img src="<?= BASE ?>images/pitch night.JPG" alt="MVCC Pitch Night">
+            <img src="<?= BASE ?>/images/frontpagepicture.jpg" alt="MVCC Pitch Night">
             <div class="img-hover-overlay"></div>
           </div>
         </div>
@@ -287,7 +287,7 @@ $ribbonItems = array_merge($partners, $partners);
       <div class="ribbon-track-wrapper">
         <div class="ribbon-track" id="ribbonTrack">
           <?php foreach ($ribbonItems as $p): ?>
-            <a class="ribbon-item" href="<?= htmlspecialchars($p['website_url'] ?: '#') ?>" target="_blank" rel="noopener">
+            <a class="ribbon-item <?= $p['description'] === 'Associated' ? 'ribbon-item--associated' : '' ?>" href="<?= htmlspecialchars($p['website_url'] ?: '#') ?>" target="_blank" rel="noopener">
               <?php if (!empty($p['logo_url'])): ?>
                 <img class="ribbon-logo" src="<?= htmlspecialchars($p['logo_url']) ?>" alt="<?= htmlspecialchars($p['name']) ?>">
               <?php else: ?>
