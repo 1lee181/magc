@@ -769,6 +769,7 @@ img { max-width: 100%; display: block; }
 .ribbon-logo {
   width: 56px;
   height: 36px;
+  border-radius: 20%;
   object-fit: contain;
   margin: 0 auto 0.5rem;
 }
