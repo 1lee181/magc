@@ -7,4 +7,4 @@
 //   http://localhost/cs1xd3/venturehub/  -> '/cs1xd3/venturehub'
 //   http://localhost/                    -> ''
 // ============================================================
-define('BASE', '/cs1xd3/venturehub');
+define('BASE', '/~kolesnm/team/venturehub');
