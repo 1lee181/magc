@@ -12,18 +12,22 @@ $adminUser = $_SESSION['admin_username'] ?? 'Admin';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | VentureHub</title>
+    <title>Admin Dashboard | MVCC</title>
     <link rel="stylesheet" href="<?= BASE ?>/css/style.css">
     <link rel="stylesheet" href="<?= BASE ?>/css/admin.css">
 </head>
 <body class="admin-body">
 
 <nav class="admin-navbar">
-    <a class="navbar-brand" href="<?= BASE ?>/pages/admin/dashboard.php">VentureHub Admin</a>
+  <div class="admin-navbar-inner">
+    <a class="navbar-brand" href="<?= BASE ?>/pages/admin/dashboard.php">
+      <img src="<?= BASE ?>/images/mvcc-logo.png" alt="MVCC">
+    </a>
     <ul class="admin-nav-links">
         <li><a href="<?= BASE ?>/">View Site</a></li>
         <li><a href="<?= BASE ?>/api/auth.php?action=logout">Logout (<?= htmlspecialchars($adminUser) ?>)</a></li>
     </ul>
+  </div>
 </nav>
 
 <div class="admin-container">

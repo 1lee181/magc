@@ -10,19 +10,29 @@ body.admin-body {
 /* ── Admin Navbar ── */
 .admin-navbar {
   background: var(--maroon2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
   height: 52px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
+.admin-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
 .admin-navbar .navbar-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--sand);
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar .navbar-brand img {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(0.85) sepia(1) hue-rotate(5deg) saturate(0.6);
 }
 
 .admin-nav-links { display: flex; gap: 1.5rem; list-style: none; }

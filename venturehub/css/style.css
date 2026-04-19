@@ -13,16 +13,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
-  --cream:   #F2F0D8;
-  --gold:    #BF9004;
-  --sand:    #D9C39A;
-  --taupe:   #A69485;
-  --maroon:  #590202;
-  --maroon2: #3d0101;
-  --white:   #ffffff;
-  --ink:     #1a1208;
-  --muted:   #7a6a55;
-  --border:  #d8d0b8;
+  /* MVCC theme — softened tints for cohesion
+     Source hues: Brown #845a12 | Grey-orange #c29e61 | Dark red #7a0000
+                  Pastel grey-orange #e7cb9b | Dark grey #323131          */
+  --cream:   #f0ddb8;   /* Lightened pastel grey-orange — background (softer than raw #e7cb9b) */
+  --gold:    #7a5210;   /* Brown darkened slightly — labels, accents, underlines */
+  --sand:    #b8924f;   /* Grey-orange mid — secondary accents, borders */
+  --taupe:   #9a7a48;   /* Warm mid-tone — muted elements */
+  --maroon:  #7a0000;   /* Dark red — primary brand, headings, CTAs */
+  --maroon2: #5e0000;   /* Deeper red — hover states */
+  --white:   #fdf8f0;   /* Off-white with warmth — card/alt backgrounds */
+  --ink:     #2e2b2b;   /* Near-black with warmth — body text */
+  --muted:   #7a6040;   /* Warm brown-grey — secondary text */
+  --border:  #d4aa6e;   /* Lighter grey-orange — borders (less harsh) */
   --radius:  4px;
 }
 
@@ -63,22 +66,34 @@ img { max-width: 100%; display: block; }
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
   height: 64px;
   background: var(--cream);
   border-bottom: 1px solid var(--border);
 }
 
+/* Navbar content constrained to same width as section-inner */
+.navbar > * { position: relative; z-index: 1; }
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
 .navbar-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--maroon);
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 .navbar-links {
@@ -134,54 +149,84 @@ img { max-width: 100%; display: block; }
 ═══════════════════════════════════════════ */
 #hero {
   min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 3rem 5rem;
   background: var(--cream);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding: 0 3rem;
 }
 
-/* Large faded background letter */
-#hero::before {
-  content: 'V';
-  position: absolute;
-  top: -0.1em;
-  left: -0.05em;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(20rem, 40vw, 45rem);
-  font-style: italic;
-  font-weight: 300;
-  color: rgba(89, 2, 2, 0.045);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
+/* Inner container mirrors section layout exactly:
+   .section has padding: 7rem 3rem
+   .section-inner has max-width: 1080px; margin: 0 auto; NO padding of its own
+   So the content left edge = 3rem outer padding + centering when wide enough.
+   We replicate this: #hero gets padding: 0 3rem, hero-inner gets max-width + centering. */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
-.hero-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.4rem;
+#hero::before { display: none; }
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 0;
+  position: relative;
+  z-index: 1;
 }
 
+/* Title block is relative so watermark can be positioned inside it */
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-size: clamp(2.8rem, 6vw, 6rem);
   font-weight: 300;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--maroon);
-  margin-bottom: 1.8rem;
-  max-width: 14ch;
+  margin-bottom: 1.6rem;
+  position: relative;
 }
 
-.hero-title em {
+.hero-title em { font-style: italic; font-weight: 300; }
+
+/* MVCC watermark: single string absolutely positioned inside .hero-title.
+   Centered vertically on line 2 "Venture" (the middle line).
+   font-size relative to .hero-title so it scales with the title.
+   The text is faint so it reads as a ghost behind the real words. */
+.hero-watermark {
+  position: absolute;
+  left: -0.02em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65em;
   font-style: italic;
   font-weight: 300;
+  color: rgba(122, 0, 0, 0.07);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Real title text sits above watermark */
+.hero-title > em,
+.hero-title > span:not(.hero-watermark),
+.hero-title > br { position: relative; z-index: 1; }
+
+/* ── Right column: framed portrait ── */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;  /* push frame to right edge of grid column */
+  padding: 5rem 0;            /* no custom horizontal padding — grid gap handles spacing */
 }
 
 .hero-sub {
@@ -190,7 +235,16 @@ img { max-width: 100%; display: block; }
   color: var(--muted);
   max-width: 44ch;
   line-height: 1.7;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.8rem;
 }
 
 .hero-buttons {
@@ -200,6 +254,57 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 
+/* Outer wrapper that holds the decorative offset border + image */
+.hero-frame-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* Offset double-line decorative border (editorial frame effect) */
+.hero-frame-border {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: -16px;
+  bottom: -16px;
+  border: 1.5px solid var(--sand);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-frame-border::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid color-mix(in srgb, var(--sand) 35%, transparent);
+}
+
+/* The portrait */
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;               /* fill the right grid column */
+  max-width: 420px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.hero-portrait:hover img { transform: scale(1.04); }
+
 /* Thin gold rule beneath hero */
 .hero-rule {
   position: absolute;
@@ -208,6 +313,7 @@ img { max-width: 100%; display: block; }
   right: 0;
   height: 1px;
   background: linear-gradient(to right, transparent, var(--gold), transparent);
+  z-index: 2;
 }
 
 /* ═══════════════════════════════════════════
@@ -311,10 +417,7 @@ img { max-width: 100%; display: block; }
 }
 
 .section-rule {
-  width: 48px;
-  height: 1px;
-  background: var(--gold);
-  margin: 1.2rem 0 2.4rem;
+  display: none;
 }
 
 .section-lead {
@@ -555,6 +658,51 @@ img { max-width: 100%; display: block; }
 .exec-social a:hover { opacity: 0.6; }
 
 /* ═══════════════════════════════════════════
+   IMAGE HOVER GRADIENT EFFECT (triangle/conic)
+═══════════════════════════════════════════ */
+.img-hover-wrap {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+}
+
+.img-hover-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* True triangle gradient: a linear gradient clipped to a triangle polygon.
+   JS updates --mx and --my (mouse position in %) and --tx1/--ty1/--tx2/--ty2
+   (the two far corners of the triangle, opposite the mouse tip). */
+.img-hover-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* Gradient radiates from mouse position outward */
+  background: radial-gradient(
+    ellipse 90% 90% at var(--mx, 50%) var(--my, 50%),
+    rgba(132,90,18,0.55)  0%,
+    rgba(122,0,0,0.35)   40%,
+    transparent          75%
+  );
+  /* clip-path triangle: tip = mouse pos, base = two far corners computed in JS */
+  clip-path: polygon(
+    var(--mx, 50%) var(--my, 50%),
+    var(--tx1, 0%) var(--ty1, 100%),
+    var(--tx2, 100%) var(--ty2, 100%)
+  );
+  mix-blend-mode: multiply;
+}
+
+.img-hover-wrap:hover .img-hover-overlay { opacity: 1; }
+
+/* ═══════════════════════════════════════════
    RIBBON
 ═══════════════════════════════════════════ */
 #partners { overflow: hidden; background: var(--cream); }
@@ -578,20 +726,14 @@ img { max-width: 100%; display: block; }
 }
 
 .ribbon-track-wrapper::before { left:0;  background: linear-gradient(to right, var(--cream), transparent); }
-.ribbon-track-wrapper::after  { right:0; background: linear-gradient(to left,  var(--cream), transparent); }
+.ribbon-track-wrapper::after  { right:0; background: linear-gradient(to left, var(--cream), transparent); }
 
+/* JS requestAnimationFrame drives the loop — no CSS animation needed */
 .ribbon-track {
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: scroll-ribbon 30s linear infinite;
-}
-
-.ribbon-track:hover { animation-play-state: paused; }
-
-@keyframes scroll-ribbon {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  will-change: transform;
 }
 
 .ribbon-item {
@@ -643,6 +785,7 @@ img { max-width: 100%; display: block; }
 ═══════════════════════════════════════════ */
 .form-wrapper {
   max-width: 520px;
+  margin: 0 auto;            /* center form on page */
   border: 1px solid var(--border);
   padding: 2.5rem 2.5rem;
   background: var(--white);
@@ -806,28 +949,60 @@ footer {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ═══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — tablet (≤900px)
 ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .navbar { padding: 0 1.5rem; }
-  .navbar-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--cream); padding: 1.5rem; gap: 1rem; border-bottom: 1px solid var(--border); }
+  /* Navbar: reduce padding, show toggle */
+  .navbar-inner { padding: 0 1.5rem; }
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--cream);
+    padding: 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+    z-index: 200;
+  }
   .navbar-links.open { display: flex; }
   .navbar-toggle { display: flex; }
 
+  /* Sections */
   .section { padding: 5rem 1.5rem; }
-  #hero { padding: 0 1.5rem 4rem; min-height: 80vh; }
-  #hero::before { font-size: 16rem; }
-  .hero-title { font-size: clamp(2.8rem, 10vw, 5rem); }
+
+  /* Hero: stack vertically */
+  #hero { min-height: auto; overflow: hidden; padding: 0 1.5rem; }
+  .hero-inner { grid-template-columns: 1fr; padding: 0; }
+  .hero-left  { padding: 4rem 0 2.5rem; }
+  .hero-title { font-size: clamp(2.4rem, 10vw, 4.5rem); }
+  .hero-right { display: none; }
+
+  /* Stats: 2-col grid */
   .stats-row { grid-template-columns: repeat(2, 1fr); }
   .stat-box:nth-child(2) { border-right: none; }
   .stat-box:nth-child(3) { border-right: 1px solid var(--border); }
+
+  /* Contact */
   #contact { padding: 5rem 1.5rem; }
+
+  /* Form */
+  .form-wrapper { padding: 1.8rem 1.5rem; }
+
+  /* Exec grid */
+  .exec-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ═══════════════════════════════════════════
+   RESPONSIVE — mobile (≤540px)
+═══════════════════════════════════════════ */
 @media (max-width: 540px) {
-  .stats-row { grid-template-columns: 1fr 1fr; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .exec-grid  { grid-template-columns: 1fr 1fr; }
-  .hero-title { font-size: 2.5rem; }
-  .section-title { font-size: 2rem; }
+  .stats-row    { grid-template-columns: 1fr 1fr; }
+  .cards-grid   { grid-template-columns: 1fr; }
+  .exec-grid    { grid-template-columns: 1fr 1fr; }
+  .hero-title   { font-size: 2.2rem; }
+  .section-title { font-size: 1.9rem; }
+  .hero-buttons { flex-direction: column; align-items: flex-start; }
+  .btn          { width: 100%; text-align: center; }
 }

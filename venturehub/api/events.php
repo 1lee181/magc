@@ -1,85 +1,54 @@
 <?php
-// api/events.php - Matthew's past events CRUD handler
+// api/members.php - Gurehmat's sign-up form handler
 header('Content-Type: application/json');
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/auth.php';
 
-$method = $_SERVER['REQUEST_METHOD'];
+$action = $_POST['action'] ?? '';
 
-if ($method === 'GET') {
-    $action = $_GET['action'] ?? '';
+switch ($action) {
 
-    if ($action === 'list') {
-        $rows = getDB()->query('SELECT * FROM past_events ORDER BY event_date DESC')->fetchAll();
-        echo json_encode(['events' => $rows]);
-        exit;
-    }
+    case 'check_email':
+        $email = trim($_POST['email'] ?? '');
+        if (!$email) { echo json_encode(['taken' => false]); exit; }
 
-    if ($action === 'get') {
-        $id   = (int)($_GET['id'] ?? 0);
-        $stmt = getDB()->prepare('SELECT * FROM past_events WHERE id = ?');
-        $stmt->execute([$id]);
-        $row = $stmt->fetch();
-        echo json_encode($row ? ['event' => $row] : ['error' => 'Not found.']);
-        exit;
-    }
-}
+        $stmt = getDB()->prepare('SELECT id FROM members WHERE email = ? LIMIT 1');
+        $stmt->execute([$email]);
+        echo json_encode(['taken' => (bool)$stmt->fetch()]);
+        break;
 
-// All write operations require admin session
-requireAdmin();
+    case 'submit':
+        $name    = trim($_POST['name']    ?? '');
+        $email   = trim($_POST['email']   ?? '');
+        $program = trim($_POST['program'] ?? '');
+        $year    = (int)($_POST['year']   ?? 0);
 
-if ($method === 'POST') {
-    $action = $_POST['action'] ?? '';
+        // Server-side validation
+        if (!$name)  { echo json_encode(['success' => false, 'error' => 'Name is required.']);    exit; }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(['success' => false, 'error' => 'Invalid email address.']); exit;
+        }
+        if (!$program) { echo json_encode(['success' => false, 'error' => 'Program is required.']); exit; }
+        if ($year < 1 || $year > 5) { echo json_encode(['success' => false, 'error' => 'Invalid year.']); exit; }
 
-    switch ($action) {
+        // Check duplicate
+        $chk = getDB()->prepare('SELECT id FROM members WHERE email = ? LIMIT 1');
+        $chk->execute([$email]);
+        if ($chk->fetch()) {
+            echo json_encode(['success' => false, 'error' => 'This email is already registered.']);
+            exit;
+        }
 
-        case 'insert':
-            $title = trim($_POST['title'] ?? '');
-            if (!$title) { echo json_encode(['success' => false, 'error' => 'Title required.']); exit; }
+        // Insert
+        $ins = getDB()->prepare(
+            'INSERT INTO members (name, email, program, year) VALUES (?, ?, ?, ?)'
+        );
+        $ins->execute([$name, $email, $program, $year]);
 
-            $stmt = getDB()->prepare(
-                'INSERT INTO past_events (title, description, event_date, location, photo_url) VALUES (?,?,?,?,?)'
-            );
-            $stmt->execute([
-                $title,
-                trim($_POST['description'] ?? ''),
-                $_POST['event_date'] ?: null,
-                trim($_POST['location'] ?? ''),
-                trim($_POST['photo_url'] ?? ''),
-            ]);
-            echo json_encode(['success' => true]);
-            break;
+        echo json_encode(['success' => true]);
+        break;
 
-        case 'update':
-            $id    = (int)($_POST['id'] ?? 0);
-            $title = trim($_POST['title'] ?? '');
-            if (!$id || !$title) { echo json_encode(['success' => false, 'error' => 'Invalid data.']); exit; }
-
-            $stmt = getDB()->prepare(
-                'UPDATE past_events SET title=?, description=?, event_date=?, location=?, photo_url=? WHERE id=?'
-            );
-            $stmt->execute([
-                $title,
-                trim($_POST['description'] ?? ''),
-                $_POST['event_date'] ?: null,
-                trim($_POST['location'] ?? ''),
-                trim($_POST['photo_url'] ?? ''),
-                $id,
-            ]);
-            echo json_encode(['success' => true]);
-            break;
-
-        case 'delete':
-            $id = (int)($_POST['id'] ?? 0);
-            if (!$id) { echo json_encode(['success' => false, 'error' => 'Invalid ID.']); exit; }
-            $stmt = getDB()->prepare('DELETE FROM past_events WHERE id = ?');
-            $stmt->execute([$id]);
-            echo json_encode(['success' => true]);
-            break;
-
-        default:
-            http_response_code(400);
-            echo json_encode(['error' => 'Invalid action.']);
-    }
+    default:
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid action.']);
 }

@@ -67,10 +67,10 @@ CREATE TABLE IF NOT EXISTS admins (
 INSERT IGNORE INTO admins (username, password_hash) VALUES
 ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
 
-INSERT IGNORE INTO past_events (id, title, description, event_date, location) VALUES
-(1, 'Pitch Night 2024',    'Students pitched to a panel of real investors.',     '2024-11-15', 'MDCL 1305'),
-(2, 'Investor Workshop',   'Deep dive into term sheets and valuations.',          '2025-02-08', 'Online'),
-(3, 'Networking Social',   'Annual mixer with local VC professionals.',           '2025-03-20', 'CIBC Hall');
+INSERT IGNORE INTO past_events (id, title, description, event_date, location, photo_url) VALUES
+(1, 'Pitch Night 2024',    'Students pitched to a panel of real investors.',     '2024-11-15', 'MDCL 1305', '/cs1xd3/venturehub/images/pitch-night.jpg'),
+(2, 'Investor Workshop',   'Deep dive into term sheets and valuations.',          '2025-02-08', 'Online', NULL),
+(3, 'Networking Social',   'Annual mixer with local VC professionals.',           '2025-03-20', 'CIBC Hall', NULL);
 
 INSERT IGNORE INTO partners (id, name, website_url, description, display_order) VALUES
 (1, 'Partner A',  'https://example.com', 'Our founding partner.',   1),
@@ -81,6 +81,10 @@ INSERT IGNORE INTO partners (id, name, website_url, description, display_order) 
 (6, 'Startup F',  'https://example.com', 'Portfolio startup.',       6);
 
 INSERT IGNORE INTO executives (id, name, role, bio, display_order) VALUES
-(1, 'Member 1', 'President',  'Short bio for Member 1.', 1),
-(2, 'Member 2', 'VP Finance', 'Short bio for Member 2.', 2),
-(3, 'Member 3', 'Treasurer',  'Short bio for Member 3.', 3);
+(1, 'Veer Sarin',          'Co-founder',        '', 1),
+(2, 'Diya Shah',           'Co-founder',        '', 2),
+(3, 'Benicio Uhart',       'Co-founder',        '', 3),
+(4, 'Josh Michell',        'VP Operations',     '', 4),
+(5, 'Hannah Lewin',        'VP Marketing',      '', 5),
+(6, 'Hunaid Rajkotwala',   'Co-VP Education',   '', 6),
+(7, 'Abhay Shenoy',        'Co-VP Education',   '', 7);

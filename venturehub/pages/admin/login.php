@@ -18,7 +18,7 @@ if (!empty($_SESSION['login_error'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | VentureHub</title>
+    <title>Admin Login | MVCC</title>
     <link rel="stylesheet" href="<?= BASE ?>/css/style.css">
     <link rel="stylesheet" href="<?= BASE ?>/css/admin.css">
 </head>
@@ -27,7 +27,7 @@ if (!empty($_SESSION['login_error'])) {
 <div class="login-wrapper">
     <div class="login-box">
         <div class="login-logo">
-            <span>VentureHub</span>
+            <img src="<?= BASE ?>/images/mvcc-logo.png" alt="MVCC" style="height:60px; width:auto; margin:0 auto;">
         </div>
         <h1>Admin Login</h1>
 
