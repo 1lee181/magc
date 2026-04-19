@@ -119,23 +119,23 @@ $ribbonItems = array_merge($partners, $partners);
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-year">Year 1</div>
-          <div class="timeline-text">Forge/Innovation Factory partnerships, MVCC x Forge coaching system, structured scouting + newsletter engine, sponsorships (seed capital base), 10+ startups coached, 1–2 case comps, Waterloo VG ties, 1000+ followers</div>
+          <div class="timeline-text">Partnered with The Forge and the Innovation Factory, launched MVCC x Forge coaching program, built newsletter, secured sponsorships, coached 10+ startups, competed in 1–2 case competitions, grew to 1000+ followers, established relations with Waterloo VG</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 2</div>
-          <div class="timeline-text">Formal deal pipeline + investment memo system, first $5–10k angel facilitation / micro-investments (alumni/sponsor-backed), VC Summit, VC partnerships, 20+ startups coached, 2–3 deals</div>
+          <div class="timeline-text">Initiated first $5–10k investments and angel facilitation, hosted VC Summit, developed VC partnerships, coached 20+ startups, completed 2–3 deals</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 3</div>
-          <div class="timeline-text">Scale structured deal flow (30+ startups), launch angel syndicate (10–15 HNIs), national case competition, transition into repeatable investment process, 3–5 investments</div>
+          <div class="timeline-text">Scaled deal flow to 30+ startups, launched angel syndicate with 10–15 HNIs, organized national case competition, executed 3–5 investments</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 4</div>
-          <div class="timeline-text">Expand into deal-scouting model for VC funds, global VC partnerships (Sequoia/a16z), strengthen alumni capital + VC/IB pipeline, newsletter becomes sourcing channel, 5–7 deals, 1000+ subs</div>
+          <div class="timeline-text">Established global VC partnerships including Sequoia and a16z, positioned MVCC as a deal scout, built alumni pipeline into VC and investment banking, completed 5–7 deals, expanded newsletter to 1000+ subscribers</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 5</div>
-          <div class="timeline-text">MVCC Fund I ($250K–$500K) institutionalized microfund, formal investment committee + portfolio system, 10+ portfolio startups, national VC summit, international student VC partnerships</div>
+          <div class="timeline-text">Launched MVCC Fund I ($250K–$500K), formalized student microfund structure, built portfolio of 10+ startups, hosted national VC summit, formed international student VC partnerships</div>
         </div>
       </div>
     </div>
@@ -147,7 +147,7 @@ $ribbonItems = array_merge($partners, $partners);
   <section id="events" class="section section-alt">
     <div class="section-inner">
       <div class="section-label">What We Have Built</div>
-      <h2 class="section-title"><em>Past & Future</em> Events</h2>
+      <h2 class="section-title"><em>Events</em></h2>
       <p class="section-lead">A look at the rooms we have created over the years.</p>
 
       <?php if (empty($events)): ?>
