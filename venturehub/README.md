@@ -21,6 +21,7 @@ Copy the `venturehub` folder into:
 3. Click **Import** in the top menu.
 4. Choose the file: `venturehub/data/setup.sql`
 5. Click **Go**.
+6. do the same for execs_update.sql
 
 This creates the `venturehub` database with all 5 tables and sample data.
 
