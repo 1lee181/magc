@@ -310,9 +310,9 @@ $ribbonItems = array_merge($partners, $partners);
   <div class="contact-links">
     <a href="mailto:mvcc@mcmaster.ca">mvcc@mcmaster.ca</a>
     <span style="opacity:0.3;">|</span>
-    <a href="https://instagram.com/mvcc" target="_blank">instagram.com/mvcc</a>
+    <a href="https://www.instagram.com/macventurecapital" target="_blank">instagram.com/macventurecapital</a>
     <span style="opacity:0.3;">|</span>
-    <a href="https://linkedin.com/company/mvcc" target="_blank">linkedin.com/company/mvcc</a>
+    <a href="https://www.linkedin.com/company/macventurecapital/" target="_blank">linkedin.com/company/macventurecapital</a>
   </div>
 </section>
 
