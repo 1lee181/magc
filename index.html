@@ -8,33 +8,101 @@
       src="https://kit.fontawesome.com/18ac903506.js"
       crossorigin="anonymous"
     ></script>
-    <title>Home</title>
+    <title>MAGC - Home</title>
   </head>
   <body>
-    <header>
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand">M<span>A</span>GC</a>
+        <div class="navbar-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">Projects</a>
+          <a href="showcase.html">Showcase</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">1XD3's best student web team</p>
+        <h1 class="hero-title">
+          Building the <em>websites</em><br />one line at a time.
+        </h1>
+        <p class="hero-sub">
+          We are MAGC and we are a team of first year computer science students
+          all taking 1XD3. We're currently designing and developing McMaster
+          Venture Capital Club's Website.
+        </p>
+        <div class="hero-buttons">
+          <a href="project.html" class="btn btn-primary">View Our Projects</a>
+          <a href="about.html" class="btn btn-outline">Meet the Team</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS STRIP ── -->
+    <section class="stats-strip">
       <div class="container">
-        <div class="header-row">
-          <div class="brand">
-            <h1>MAGC</h1>
+        <div class="stats-row">
+          <div class="stat-box">
+            <span class="stat-num">4</span>
+            <span class="stat-label">Team Members</span>
           </div>
-          <nav class="nav-links">
-            <ul>
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="about.html" class="">About</a></li>
-              <li><a href="project.html" class="">Projects</a></li>
-              <li><a href="showcase.html" class="">Showcase</a></li>
-            </ul>
-          </nav>
-          <div class="actions">
-            <button class="iconbtn">
-              <i class="fa-solid fa-circle-half-stroke"></i>
-            </button>
-            <button class="iconbtn">
-              <i class="fa-solid fa-envelope"></i>
-            </button>
+          <div class="stat-box">
+            <span class="stat-num">1</span>
+            <span class="stat-label">1XD3 Semester Strong</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">1</span>
+            <span class="stat-label">dream (to pass calc 2)</span>
           </div>
         </div>
       </div>
-    </header>
+    </section>
+
+    <!-- ── ABOUT TEASER ── -->
+    <section class="section">
+      <div class="section-inner">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-title">
+          Built by students,<br /><em>for the real world.</em>
+        </h2>
+        <div class="gold-rule"></div>
+        <p class="section-lead">
+          We're four McMaster CS students combining creativity and code to
+          deliver polished websites. Every project we ship
+          is a chance to learn and grow.
+        </p>
+        <div
+          style="margin-top: 1.8rem; display: flex; gap: 1rem; flex-wrap: wrap"
+        >
+          <a href="about.html" class="btn btn-primary">Meet the Team</a>
+          <a href="showcase.html" class="btn btn-outline">Our Showcase</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">M<span>A</span>GC</div>
+          <div class="footer-tagline">McMaster · Computer Science · 2025</div>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">Projects</a>
+          <a href="showcase.html">Showcase</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 MAGC. All rights reserved.</span>
+        <span>McMaster University</span>
+      </div>
+    </footer>
   </body>
 </html>

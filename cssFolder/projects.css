@@ -1,0 +1,128 @@
+/* MAGC Projects Page Styles */
+
+/* Cards grid: 2 columns max for project detail cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 2.2rem;
+}
+
+/* Card image: slightly taller for project context */
+.card-img-wrap {
+  height: 230px;
+}
+
+/* Card body: extra breathing room */
+.card-body {
+  padding: 1.7rem 1.8rem;
+}
+
+/* Card meta: gold color on projects page */
+.card-meta {
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+/* Card title sizing */
+.card-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Card text */
+.card-text {
+  font-size: 0.9rem;
+  line-height: 1.72;
+  margin-bottom: 1.2rem;
+}
+
+/* Tech tags row */
+.card-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+/* Actions */
+.card-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Design Principles section (if used on projects page) */
+.design-principles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+
+.principle-box {
+  padding: 1.6rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: box-shadow var(--ease);
+}
+
+.principle-box:hover {
+  box-shadow: 0 8px 24px rgba(89, 2, 2, 0.09);
+}
+
+.principle-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--maroon);
+  margin-bottom: 0.7rem;
+}
+
+.principle-box p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.principle-icon {
+  color: var(--gold);
+  margin-right: 0.4rem;
+}
+
+/* CTA band at bottom */
+.projects-cta {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.projects-cta .btn {
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .design-principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

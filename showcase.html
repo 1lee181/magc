@@ -8,129 +8,381 @@
       src="https://kit.fontawesome.com/18ac903506.js"
       crossorigin="anonymous"
     ></script>
-    <title>Home</title>
+    <title>MAGC - Showcase</title>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="header-row">
-          <div class="brand">
-            <h1>MAGC</h1>
-          </div>
-          <nav class="nav-links">
-            <ul>
-              <li><a href="index.html" class="">Home</a></li>
-              <li><a href="about.html" class="">About</a></li>
-              <li><a href="project.html" class="">Projects</a></li>
-              <li><a href="showcase.html" class="active">Showcase</a></li>
-            </ul>
-          </nav>
-          <div class="actions">
-            <button class="iconbtn">
-              <i class="fa-solid fa-circle-half-stroke"></i>
-            </button>
-            <button class="iconbtn">
-              <i class="fa-solid fa-envelope"></i>
-            </button>
-          </div>
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand">M<span>A</span>GC</a>
+        <div class="navbar-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">Projects</a>
+          <a href="showcase.html" class="active">Showcase</a>
         </div>
       </div>
-    </header>
-    <h1>Welcome to our Showcase!</h1>
-    <p>
-      Click "show more" for more details and an inside look into the technical
-      side of each project
-    </p>
-    <ul>
-      <li>
-        <div class="ProjectShowcase">
-          <h2 class="project_header">Website Design Principles</h2>
-          <div class="comparison_wrapper--showcase">
-            <div class="compared_website">
-              <img
-                src="./images/Dundas_Valley_site.png"
-                class="project_img"
-                alt="Under Construction Image"
-              />
-            </div>
-            <div class="compared_website">
-              <img
-                src="./images/Delata_Hacks_site.png"
-                class="project_img"
-                alt="Under Construction Image"
-              />
-              <div class="compared_text">
-                <ul>
-                  <li>
-                    <strong>Consistency</strong>
-                    <ul class="bullet_points">
-                      <li>
-                        <strong>Link inconsistency:</strong> In the Products
-                        list, only the text within each bullet is clickable
-                        rather than the entire list item, which is inconsistent
-                        with standard linked list behavior.
-                      </li>
-                      <li>
-                        <strong>Header inconsistency:</strong> The Products page
-                        has a page-level header, but this pattern is not
-                        followed on other pages. The Service page lacks a
-                        “Service” header and jumps directly to a subsection
-                        (“Gift Cards”).
-                      </li>
-                      <li>
-                        <strong>Text styling inconsistency:</strong> The Contact
-                        page uses bold text (e.g., “Attention”) that is not used
-                        or styled consistently elsewhere.
-                      </li>
-                      <li>
-                        <strong>Accessibility inconsistency:</strong> Images
-                        displayed together do not consistently include alt
-                        attributes; some images lack alternative text entirely.
-                      </li>
-                    </ul>
-                  </li>
-                  <li><strong>Ease of Navigation</strong></li>
-                  <ul class="bullet_points"></ul>
-                  <li>
-                    <strong>Universal Accessibility and Usability</strong>
-                  </li>
-                  <li><strong>Error Prevention</strong></li>
-                </ul>
+    </nav>
+
+    <!-- ── PAGE HERO ── -->
+    <div class="page-hero">
+      <div class="page-hero-eyebrow">An Inside Look</div>
+      <h1>Welcome to our <em>Showcase</em></h1>
+      <p>
+        Click "Show More" for an inside look into the technical side of each
+        project.
+      </p>
+    </div>
+
+    <!-- ── SHOWCASE ITEMS ── -->
+    <section class="section">
+      <div class="section-inner">
+        <!-- ── Item 1: Website Design Principles ── -->
+        <div class="showcase-item animate-up">
+          <div class="showcase-item-header">
+            <h3>
+              <i
+                class="fa-solid fa-compass-drafting"
+                style="margin-right: 0.5rem; opacity: 0.7"
+              ></i
+              >Website Design Principles
+            </h3>
+            <span class="showcase-badge">Analysis</span>
+          </div>
+          <div class="showcase-item-body">
+            <p class="showcase-desc">
+              An analysis of real world websites evaluated against core UX
+              design principles we learned in class, highlighting what works and
+              what doesn't. This is from the CS 1XD3 Lab 3.2: Design Principles
+              on 21 January 2026. Were following the design principles laid out
+              in
+              <a
+                href="https://ecampusontario.pressbooks.pub/webdev/chapter/user-interface-design/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Design Principles textbook chapter link
+              </a>
+            </p>
+
+            <div class="comparison-wrap">
+              <div>
+                <img
+                  src="./images/Dundas_Valley_site.png"
+                  alt="Dundas Valley site screenshot"
+                />
+                <a
+                  href="https://www.dundasvalleyhobby.ca/ 
+"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  bad website (dundas valley hobby)S
+                </a>
+                <div style="margin-top: 1.4rem">
+                  <ul class="comparison-list">
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-xmark"
+                          style="color: #c44536; margin-right: 0.4rem"
+                        ></i
+                        >Consistency</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          <strong>Link inconsistency:</strong> In the Products
+                          list, only the text within each bullet is clickable
+                          rather than the entire list item, which is
+                          inconsistent with standard linked list behavior.
+                        </li>
+                        <li>
+                          <strong>Header inconsistency:</strong> The Products
+                          page has a page-level header, but this pattern is not
+                          followed on other pages. The Service page lacks a
+                          "Service" header and jumps directly to a subsection
+                          ("Gift Cards").
+                        </li>
+                        <li>
+                          <strong>Text styling inconsistency:</strong> The
+                          Contact page uses bold text (e.g., "Attention") that
+                          is not used or styled consistently elsewhere.
+                        </li>
+                        <li>
+                          <strong>Accessibility inconsistency:</strong> Images
+                          displayed together do not consistently include alt
+                          attributes; some images lack alternative text
+                          entirely.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-xmark"
+                          style="color: #c44536; margin-right: 0.4rem"
+                        ></i
+                        >Ease of Navigation</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          The links and navigation sections are not consistent.
+                          When clicking on the products page, the colour and
+                          font of the navigation boxes on the left are different
+                          than the nav bar at the top.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-xmark"
+                          style="color: #c44536; margin-right: 0.4rem"
+                        ></i
+                        >Universal Usability and Accessibility</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          <strong>Missing Alt attributes for images:</strong>
+                          Several images on this webpage lack descriptive alt
+                          text leading to users using a screen reader to not be
+                          able to interpret image content.
+                        </li>
+                        <li>
+                          <strong>Poor Responsive Web Design:</strong> As you
+                          transition from device to device, the layout stays the
+                          same, causing inconsistent layouts across devices. No
+                          media queries are used to help organize content for
+                          mobile users. This webpage fails at universal
+                          usability and responsiveness as it was clearly
+                          designed for desktop users only.
+                        </li>
+                        <li>
+                          <strong>Buttons for mobile users:</strong> An inherent
+                          issue with this webpage is the lack of accommodations
+                          for mobile users. Anything smaller than a laptop
+                          screen, the buttons progressively begin to shrink
+                          making it difficult to interact with.
+                        </li>
+                        <li>
+                          <strong>Screen management for mobile users:</strong>
+                          As the screen progressively gets smaller, the content
+                          is shrunk, while blank space is used to fill the
+                          remainder of the page. It makes the page less readable
+                          and interactive.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-xmark"
+                          style="color: #c44536; margin-right: 0.4rem"
+                        ></i
+                        >Error Prevention</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          A significant amount of errors presented to the user
+                          within the HTML. Once checked with the W3C validation
+                          service, 14 errors and 18 warnings were found. In the
+                          CSS there is also a parse error.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <img
+                  src="./images/Delata_Hacks_site.png"
+                  alt="Delta Hacks site screenshot"
+                />
+                <a
+                  href="https://www.deltahacks.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Good Website (McMaster Deltahacks Hackathon Website)
+                </a>
+
+                <div style="margin-top: 1.4rem">
+                  <ul class="comparison-list">
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-check"
+                          style="color: var(--gold); margin-right: 0.4rem"
+                        ></i
+                        >Consistency</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          <strong>Consistent visual language:</strong>
+                          Illustrations, colour palette, icon style, and rounded
+                          shapes are used uniformly across all sections,
+                          creating a cohesive visual identity.
+                        </li>
+                        <li>
+                          <strong>Consistent section hierarchy:</strong> Each
+                          section (About, Speakers, Sponsors, FAQ) follows a
+                          clear pattern: section header → grouped content →
+                          uniform spacing, making scanning easy.
+                        </li>
+                        <li>
+                          <strong>Consistent interaction cues:</strong>
+                          Clickable elements (links, cards, icons) behave and
+                          appear consistently throughout the site, reducing
+                          guesswork.
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-check"
+                          style="color: var(--gold); margin-right: 0.4rem"
+                        ></i
+                        >Ease of Navigation</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          Navbar stays consistently at the top of the screen
+                          when scrolling through the website. With easy access
+                          to the homepage.
+                        </li>
+                        <li>
+                          Navbar has good contrast with the background and the
+                          rest of the site.
+                        </li>
+                        <li>All links work properly and are intuitive.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong
+                        ><i
+                          class="fa-solid fa-circle-check"
+                          style="color: var(--gold); margin-right: 0.4rem"
+                        ></i
+                        >Error Prevention</strong
+                      >
+                      <ul class="comparison-sublist">
+                        <li>
+                          Very mobile and device-friendly. Webpage/design gets
+                          updated depending on the size of a device, increasing
+                          usability and error prevention.
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <a href="example.com">Show More</a>
         </div>
-      </li>
-      <li>
-        <div class="ProjectShowcase">
-          <img
-            src="images/mvcc increment picture.jpg"
-            alt="Under Construction Image"
-          />
-          <h2>Team Project Increment</h2>
-          <h3>What it does...</h3>
-          <p>
-            Increment for venturehub our website for MVCC (McMaster Venture
-            Capital Club).
-          </p>
-          <a href="/~kolesnm/team/venturehub/index.php"
-            >the index.php for the site...</a
-          >
+
+        <!-- ── Item 2: Team Project Increment ── -->
+        <div class="showcase-item animate-up">
+          <div class="showcase-item-header">
+            <h3>
+              <i
+                class="fa-solid fa-code-branch"
+                style="margin-right: 0.5rem; opacity: 0.7"
+              ></i
+              >Team Project Increment
+            </h3>
+            <span class="showcase-badge">Live Build</span>
+          </div>
+          <div class="showcase-item-body">
+            <div class="showcase-img-wrap">
+              <img
+                src="images/mvcc increment picture.jpg"
+                alt="MVCC Increment"
+              />
+            </div>
+            <p class="showcase-desc">
+              Increment for VentureHub, our website for MVCC (McMaster Venture
+              Capital Club). This showcases the current live build of the
+              platform we've been developing over the semester.
+            </p>
+            <div class="showcase-grid">
+              <div class="showcase-col">
+                <h4>What it includes</h4>
+                <ul>
+                  <li>
+                    <strong>Executive profiles</strong> — searchable team
+                    directory
+                  </li>
+                  <li>
+                    <strong>Events archive</strong> — past and upcoming MVCC
+                    events
+                  </li>
+                  <li>
+                    <strong>Member signup</strong> — embedded form for all
+                    faculties
+                  </li>
+                </ul>
+              </div>
+              <div class="showcase-col">
+                <h4>Tech used</h4>
+                <ul>
+                  <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+                  <li><strong>Backend:</strong> PHP</li>
+                  <li><strong>Database:</strong> MySQL</li>
+                  <li><strong>Hosting:</strong> McMaster server</li>
+                </ul>
+              </div>
+            </div>
+            <a href="venturehub/index.php" class="showcase-link">
+              View the live site
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
         </div>
-      </li>
-      <li>
-        <div class="ProjectShowcase">
-          <img src="" alt="Under Construction Image" />
-          <h2>Project 3 Name</h2>
-          <h3>What it does...</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-            dolore ab odio ipsum et ipsa unde modi quibusdam, sed nisi.
-          </p>
-          <a href="example.com">Show More</a>
+
+        <!-- ── Item 3: Project 3 ── -->
+        <div class="showcase-item animate-up">
+          <div class="showcase-item-header">
+            <h3>
+              <i
+                class="fa-solid fa-layer-group"
+                style="margin-right: 0.5rem; opacity: 0.7"
+              ></i
+              >Project 3 Name
+            </h3>
+            <span class="showcase-badge">Coming Soon</span>
+          </div>
+          <div class="showcase-item-body">
+            <p class="showcase-desc">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
+              dolore ab odio ipsum et ipsa unde modi quibusdam, sed nisi.
+            </p>
+            <a href="example.com" class="showcase-link"
+              >Show More <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">M<span>A</span>GC</div>
+          <div class="footer-tagline">McMaster · Computer Science · 2025</div>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">Projects</a>
+          <a href="showcase.html">Showcase</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 MAGC. All rights reserved.</span>
+        <span>McMaster University</span>
+      </div>
+    </footer>
   </body>
 </html>

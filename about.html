@@ -8,100 +8,159 @@
       src="https://kit.fontawesome.com/18ac903506.js"
       crossorigin="anonymous"
     ></script>
-    <title>Home</title>
+    <title>MAGC - About</title>
   </head>
   <body>
-
-    <header>
-      <div class="container">
-        <div class="header-row">
-          <div class="brand">
-            <h1>MAGC</h1>
-          </div>
-          <nav class="nav-links">
-            <ul>
-              <li><a href="index.html" class="">Home</a></li>
-              <li><a href="about.html" class="active">About</a></li>
-              <li><a href="project.html" class="">Projects</a></li>
-              <li><a href="showcase.html" class="">Showcase</a></li>
-            </ul>
-          </nav>
-          <div class="actions">
-            <button class="iconbtn">
-              <i class="fa-solid fa-circle-half-stroke"></i>
-            </button>
-            <button class="iconbtn">
-              <i class="fa-solid fa-envelope"></i>
-            </button>
-          </div>
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand">M<span>A</span>GC</a>
+        <div class="navbar-links">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About</a>
+          <a href="project.html">Projects</a>
+          <a href="showcase.html">Showcase</a>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <main class="about-page container">
-    <div class="about-header">
-      <h1>About the Team</h1>
+    <!-- ── PAGE HERO ── -->
+    <div class="page-hero">
+      <div class="page-hero-eyebrow">The People Behind the Code</div>
+      <h1>About the <em>Team</em></h1>
+      <p>Four first year CS students</p>
     </div>
-    <div class="team-card">
-      <img src="./images/Aleesha-Abdullah.png" width="200" />
-      <h2>Aleesha Abdullah</h2>
-      <p>First Year Computer Science student who loves to code :]</p>
-      <p>
-        <a class="profile-link" href="mailto:abdua16@mcmaster.ca" target="_blank"
-          ><button class="profile-btn">Email</button></a
-        >
-      </p>
-      <p>
-        <a class="profile-link" href="https://www.linkedin.com/in/aleeshaabdullah" target="_blank"
-          ><button class="profile-btn">LinkedIn</button></a
-        >
-      </p>
-    </div>
-    <div class="team-card">
-      <img src="./images/Gurehmat-Chahal.png" width="200" />
-      <h2>Gurehmat Chahal</h2>
-      <p>First Year Computer Science student who loves to code :]</p>
-      <p>
-        <a class="profile-link" href="mailto:abdua16@mcmaster.ca" target="_blank"
-        ><button class="profile-btn">Email</button></a
-        >
-      </p>
-      <p>
-        <a class="profile-link" href="https://www.linkedin.com/in/aleeshaabdullah" target="_blank"
-        ><button class="profile-btn">LinkedIn</button></a
-        >
-      </p>
-    </div>
-    <div class="team-card">
-      <img src="./images/Mathew-Kolesnik.png" width="200" />
-      <h2>Mathew Kolesnik</h2>
-      <p>First Year Computer Science student who loves to code :]</p>
-      <p>
-        <a class="profile-link" href="mailto:abdua16@mcmaster.ca" target="_blank"
-        ><button class="profile-btn">Email</button></a
-          >
-        </p>
-        <p>
-          <a class="profile-link" href="https://www.linkedin.com/in/aleeshaabdullah" target="_blank"
-          ><button class="profile-btn">LinkedIn</button></a
-          >
-        </p>
-    </div>
-    <div class="team-card">
-      <img src="./images/Caden-chan.png" width="200" />
-      <h2>Caden Chan</h2>
-      <p>First Year Computer Science student who loves to code :]</p>
-      <p>
-        <a class="profile-link" href="mailto:abdua16@mcmaster.ca" target="_blank"
-          ><button class="profile-btn">Email</button></a
-        >
-      </p>
-      <p>
-        <a class="profile-link" href="https://www.linkedin.com/in/aleeshaabdullah" target="_blank"
-          ><button class="profile-btn">LinkedIn</button></a
-        >
-      </p>
-    </div>
-    </main>
+
+    <!-- ── TEAM GRID ── -->
+    <section class="section">
+      <div class="section-inner">
+        <p class="section-label">Executive Team</p>
+        <h2 class="section-title">Meet <em>MAGC</em></h2>
+        <div class="gold-rule"></div>
+
+        <div class="exec-grid">
+          <!-- Aleesha -->
+          <div class="exec-card animate-up">
+            <div class="exec-photo-wrap">
+              <img src="./images/Aleesha-Abdullah.png" alt="Aleesha Abdullah" />
+            </div>
+            <div class="exec-card-body">
+              <div class="exec-name">Aleesha Abdullah</div>
+              <div class="exec-role">Computer Science · Year 1</div>
+              <p class="exec-bio">
+                First Year Computer Science student who loves to code&nbsp;:]
+              </p>
+              <div class="exec-social">
+                <a href="mailto:abdua16@mcmaster.ca" target="_blank">
+                  <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aleeshaabdullah"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gurehmat -->
+          <div class="exec-card animate-up">
+            <div class="exec-photo-wrap">
+              <img src="./images/Gurehmat-Chahal.png" alt="Gurehmat Chahal" />
+            </div>
+            <div class="exec-card-body">
+              <div class="exec-name">Gurehmat Chahal</div>
+              <div class="exec-role">Computer Science · Year 1</div>
+              <p class="exec-bio">
+                First Year Computer Science student who loves to code&nbsp;:]
+              </p>
+              <div class="exec-social">
+                <a href="mailto:abdua16@mcmaster.ca" target="_blank">
+                  <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aleeshaabdullah"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mathew -->
+          <div class="exec-card animate-up">
+            <div class="exec-photo-wrap">
+              <img src="./images/Mathew-Kolesnik.png" alt="Mathew Kolesnik" />
+            </div>
+            <div class="exec-card-body">
+              <div class="exec-name">Mathew Kolesnik</div>
+              <div class="exec-role">Computer Science · Year 1</div>
+              <p class="exec-bio">
+                First Year Computer Science student who loves to code&nbsp;:]
+              </p>
+              <div class="exec-social">
+                <a href="mailto:abdua16@mcmaster.ca" target="_blank">
+                  <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aleeshaabdullah"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Caden -->
+          <div class="exec-card animate-up">
+            <div class="exec-photo-wrap">
+              <img src="./images/Caden-chan.png" alt="Caden Chan" />
+            </div>
+            <div class="exec-card-body">
+              <div class="exec-name">Caden Chan</div>
+              <div class="exec-role">Computer Science · Year 1</div>
+              <p class="exec-bio">
+                First Year Computer Science student who loves to code&nbsp;:]
+              </p>
+              <div class="exec-social">
+                <a href="mailto:abdua16@mcmaster.ca" target="_blank">
+                  <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aleeshaabdullah"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /exec-grid -->
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">M<span>A</span>GC</div>
+          <div class="footer-tagline">McMaster · Computer Science · 2025</div>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="project.html">Projects</a>
+          <a href="showcase.html">Showcase</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 MAGC. All rights reserved.</span>
+        <span>McMaster University</span>
+      </div>
+    </footer>
   </body>
 </html>
