@@ -39,7 +39,7 @@ $ribbonItems = array_merge($partners, $partners);
   <nav class="navbar">
     <div class="navbar-inner">
       <a class="navbar-brand" href="<?= BASE ?>/">
-        <img src="<?= BASE ?>/images/mvcc-logo.png" alt="MVCC">
+        <img src="<?= BASE ?>/images/goldlogo.png" alt="MVCC">
       </a>
       <button class="navbar-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
