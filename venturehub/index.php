@@ -11,7 +11,7 @@ require_once __DIR__ . '/includes/auth.php';
 
 $db = getDB();
 $execs      = $db->query('SELECT * FROM executives ORDER BY display_order ASC')->fetchAll();
-$events     = $db->query('SELECT * FROM past_events ORDER BY event_date DESC')->fetchAll();
+$events     = $db->query('SELECT * FROM events ORDER BY event_date DESC')->fetchAll();
 $partners   = $db->query('SELECT * FROM partners ORDER BY display_order ASC')->fetchAll();
 $ribbonItems = array_merge($partners, $partners);
 ?>

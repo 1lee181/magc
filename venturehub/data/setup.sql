@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS members (
 );
 
 -- Past Events (Matthew)
-CREATE TABLE IF NOT EXISTS past_events (
+CREATE TABLE IF NOT EXISTS events (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     title       VARCHAR(150) NOT NULL,
     description TEXT,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS admins (
 INSERT IGNORE INTO admins (username, password_hash) VALUES
 ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
 
-INSERT IGNORE INTO past_events (id, title, description, event_date, location, photo_url) VALUES
+INSERT IGNORE INTO events (id, title, description, event_date, location, photo_url) VALUES
 (1, 'Pitch Night 2024',    'Students pitched to a panel of real investors.',     '2024-11-15', 'MDCL 1305', '/cs1xd3/venturehub/images/pitch-night.jpg'),
 (2, 'Investor Workshop',   'Deep dive into term sheets and valuations.',          '2025-02-08', 'Online', NULL),
 (3, 'Networking Social',   'Annual mixer with local VC professionals.',           '2025-03-20', 'CIBC Hall', NULL);

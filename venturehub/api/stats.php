@@ -15,7 +15,7 @@ try {
 
     // Dynamically count rows in the tables
     $membersCount = $db->query("SELECT COUNT(*) FROM members")->fetchColumn();
-    $eventsCount  = $db->query("SELECT COUNT(*) FROM past_events")->fetchColumn();
+    $eventsCount  = $db->query("SELECT COUNT(*) FROM events")->fetchColumn();
     $execsCount   = $db->query("SELECT COUNT(*) FROM executives")->fetchColumn();
 
     // Add base padding to reflect the history of the club!
