@@ -96,20 +96,20 @@ $ribbonItems = array_merge($partners, $partners);
 
     <div class="stats-row">
       <div class="stat-box">
-        <span class="stat-num" data-target="200">0</span>
-        <div class="stat-label">Members</div>
+        <span class="stat-num" data-target="100">100</span>
+        <div class="stat-label">General Members</div>
       </div>
       <div class="stat-box">
-        <span class="stat-num" data-target="5">0</span>
+        <span class="stat-num" data-target="7">7</span>
+        <div class="stat-label">Executives</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num" data-target="4">4</span>
+        <div class="stat-label">Analysts</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num" data-target="5">5</span>
         <div class="stat-label">Years Active</div>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num" data-target="30">0</span>
-        <div class="stat-label">Events Hosted</div>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num" data-target="15">0</span>
-        <div class="stat-label">Partners</div>
       </div>
     </div>
 
@@ -132,7 +132,7 @@ $ribbonItems = array_merge($partners, $partners);
       </div>
       <div class="timeline-item">
         <div class="timeline-year">Year 5</div>
-        <div class="timeline-text">VentureHub portal launched. 200+ members and 15 active partners.</div>
+        <div class="timeline-text">VentureHub portal launched. 100+ general members, 7 executives, and 4 analysts.</div>
       </div>
     </div>
   </div>

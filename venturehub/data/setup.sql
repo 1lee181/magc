@@ -80,11 +80,12 @@ INSERT IGNORE INTO partners (id, name, website_url, description, display_order) 
 (5, 'Partner E',  'https://example.com', 'Industry sponsor.',        5),
 (6, 'Startup F',  'https://example.com', 'Portfolio startup.',       6);
 
-INSERT IGNORE INTO executives (id, name, role, bio, display_order) VALUES
-(1, 'Veer Sarin',          'Co-founder',        '', 1),
-(2, 'Diya Shah',           'Co-founder',        '', 2),
-(3, 'Benicio Uhart',       'Co-founder',        '', 3),
-(4, 'Josh Michell',        'VP Operations',     '', 4),
-(5, 'Hannah Lewin',        'VP Marketing',      '', 5),
-(6, 'Hunaid Rajkotwala',   'Co-VP Education',   '', 6),
-(7, 'Abhay Shenoy',        'Co-VP Education',   '', 7);
+INSERT IGNORE INTO executives
+(id, name, role, bio, photo_url, linkedin_url, instagram_url, display_order) VALUES
+(1, 'Veer Sarin',        'Co-founder',      '', '', '', '', 1),
+(2, 'Diya Shah',         'Co-founder',      '', '', '', '', 2),
+(3, 'Benicio Uhart',     'Co-founder',      '', '', '', '', 3),
+(4, 'Josh Michell',      'VP Operations',   '', '', '', '', 4),
+(5, 'Hannah Lewin',      'VP Marketing',    '', '', '', '', 5),
+(6, 'Hunaid Rajkotwala', 'Co-VP Education', '', '', '', '', 6),
+(7, 'Abhay Shenoy',      'Co-VP Education', '', '', '', '', 7);
