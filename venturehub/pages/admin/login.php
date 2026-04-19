@@ -37,7 +37,7 @@ if (!empty($_SESSION['login_error'])) {
         <h1>Admin Login</h1>
 
         <?php if ($error): ?>
-            <div class="alert alert-error"><?= htmlspecialchars($error) ?></div>
+            <div class="alert alert-error"><?= htmlspecialchars($error , ENT_QUOTES, 'UTF-8') ?></div>
         <?php endif; ?>
 
         <form method="POST" action="<?= BASE ?>/api/auth.php?action=login">

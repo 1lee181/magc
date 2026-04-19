@@ -30,7 +30,7 @@ $adminUser = $_SESSION['admin_username'] ?? 'Admin';
     </a>
     <ul class="admin-nav-links">
         <li><a href="<?= BASE ?>/">View Site</a></li>
-        <li><a href="<?= BASE ?>/api/auth.php?action=logout">Logout (<?= htmlspecialchars($adminUser) ?>)</a></li>
+        <li><a href="<?= BASE ?>/api/auth.php?action=logout">Logout (<?= htmlspecialchars($adminUser, ENT_QUOTES, 'UTF-8') ?>)</a></li>
     </ul>
   </div>
 </nav>

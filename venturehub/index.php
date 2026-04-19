@@ -164,21 +164,21 @@ $ribbonItems = array_merge($partners, $partners);
             <div class="card">
               <?php if (!empty($e['photo_url'])): ?>
                 <div class="img-hover-wrap">
-                  <img class="card-img" src="<?= htmlspecialchars($e['photo_url']) ?>" alt="<?= htmlspecialchars($e['title']) ?>">
+                  <img class="card-img" src="<?= htmlspecialchars($e['photo_url'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($e['title'], ENT_QUOTES, 'UTF-8') ?>">
                   <div class="img-hover-overlay"></div>
                 </div>
               <?php else: ?>
                 <div class="card-img-placeholder">No Photo</div>
               <?php endif; ?>
               <div class="card-body">
-                <div class="card-title"><?= htmlspecialchars($e['title']) ?></div>
+                <div class="card-title"><?= htmlspecialchars($e['title'], ENT_QUOTES, 'UTF-8') ?></div>
                 <div class="card-meta">
                   <?php if ($e['event_date']): echo date('M j, Y', strtotime($e['event_date']));
                   endif; ?>
-                  <?php if ($e['location']): ?> &nbsp;&mdash;&nbsp; <?= htmlspecialchars($e['location']) ?><?php endif; ?>
+                  <?php if ($e['location']): ?> &nbsp;&mdash;&nbsp; <?= htmlspecialchars($e['location'], ENT_QUOTES, 'UTF-8') ?><?php endif; ?>
                 </div>
                 <?php if ($e['description']): ?>
-                  <div class="card-text"><?= nl2br(htmlspecialchars($e['description'])) ?></div>
+                  <div class="card-text"><?= nl2br(htmlspecialchars($e['description'], ENT_QUOTES, 'UTF-8')) ?></div>
                 <?php endif; ?>
               </div>
             </div>
@@ -205,24 +205,24 @@ $ribbonItems = array_merge($partners, $partners);
             <div class="exec-card">
               <?php if (!empty($ex['photo_url'])): ?>
                 <div class="img-hover-wrap" style="width:120px;height:120px;border-radius:50%;margin:0 auto 1rem;border:2px solid var(--sand);">
-                  <img class="exec-photo" style="border:none;margin:0;" src="<?= htmlspecialchars($ex['photo_url']) ?>" alt="<?= htmlspecialchars($ex['name']) ?>">
+                  <img class="exec-photo" style="border:none;margin:0;" src="<?= htmlspecialchars($ex['photo_url'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($ex['name'], ENT_QUOTES, 'UTF-8') ?>">
                   <div class="img-hover-overlay"></div>
                 </div>
               <?php else: ?>
-                <div class="exec-photo-placeholder"><?= htmlspecialchars(mb_substr($ex['name'], 0, 1)) ?></div>
+                <div class="exec-photo-placeholder"><?= htmlspecialchars(mb_substr($ex['name'], 0, 1), ENT_QUOTES, 'UTF-8') ?></div>
               <?php endif; ?>
-              <div class="exec-name"><?= htmlspecialchars($ex['name']) ?></div>
-              <div class="exec-role"><?= htmlspecialchars($ex['role'] ?? '') ?></div>
+              <div class="exec-name"><?= htmlspecialchars($ex['name'], ENT_QUOTES, 'UTF-8') ?></div>
+              <div class="exec-role"><?= htmlspecialchars($ex['role'] ?? '', ENT_QUOTES, 'UTF-8') ?></div>
               <?php if (!empty($ex['bio'])): ?>
-                <div class="exec-bio"><?= htmlspecialchars($ex['bio']) ?></div>
+                <div class="exec-bio"><?= htmlspecialchars($ex['bio'], ENT_QUOTES, 'UTF-8') ?></div>
               <?php endif; ?>
               <?php if (!empty($ex['linkedin_url']) || !empty($ex['instagram_url'])): ?>
                 <div class="exec-social">
                   <?php if (!empty($ex['linkedin_url'])): ?>
-                    <a href="<?= htmlspecialchars($ex['linkedin_url']) ?>" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="<?= htmlspecialchars($ex['linkedin_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">LinkedIn</a>
                   <?php endif; ?>
                   <?php if (!empty($ex['instagram_url'])): ?>
-                    <a href="<?= htmlspecialchars($ex['instagram_url']) ?>" target="_blank" rel="noopener">Instagram</a>
+                    <a href="<?= htmlspecialchars($ex['instagram_url'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">Instagram</a>
                   <?php endif; ?>
                 </div>
               <?php endif; ?>
@@ -293,13 +293,13 @@ $ribbonItems = array_merge($partners, $partners);
       <div class="ribbon-track-wrapper">
         <div class="ribbon-track" id="ribbonTrack">
           <?php foreach ($ribbonItems as $p): ?>
-            <a class="ribbon-item <?= $p['description'] === 'Associated' ? 'ribbon-item--associated' : '' ?>" href="<?= htmlspecialchars($p['website_url'] ?: '#') ?>" target="_blank" rel="noopener">
+            <a class="ribbon-item <?= $p['description'] === 'Associated' ? 'ribbon-item--associated' : '' ?>" href="<?= htmlspecialchars($p['website_url'] ?: '#', ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener">
               <?php if (!empty($p['logo_url'])): ?>
-                <img class="ribbon-logo" src="<?= htmlspecialchars($p['logo_url']) ?>" alt="<?= htmlspecialchars($p['name']) ?>">
+                <img class="ribbon-logo" src="<?= htmlspecialchars($p['logo_url'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($p['name'], ENT_QUOTES, 'UTF-8') ?>">
               <?php else: ?>
                 <div class="ribbon-logo-placeholder">Logo</div>
               <?php endif; ?>
-              <span class="ribbon-name"><?= htmlspecialchars($p['name']) ?></span>
+              <span class="ribbon-name"><?= htmlspecialchars($p['name'], ENT_QUOTES, 'UTF-8') ?></span>
             </a>
           <?php endforeach; ?>
         </div>
