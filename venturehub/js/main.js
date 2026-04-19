@@ -117,7 +117,7 @@ document.querySelectorAll('.timeline-item').forEach(el => revealObserver.observe
   window.addEventListener('resize', () => { fillTrack(); halfW = 0; });
 
   let pos    = 0;
-  const speed  = 0.55;
+  const speed  = 1.2;
   let paused = false;
   let halfW  = 0;
 
