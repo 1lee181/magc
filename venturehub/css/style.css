@@ -92,7 +92,6 @@ img { max-width: 100%; display: block; }
 
 .navbar-brand img {
   height: 38px;
-  border-radius: 20%;
   width: auto;
   display: block;
 }
