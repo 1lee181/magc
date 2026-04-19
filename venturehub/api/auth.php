@@ -1,4 +1,9 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: API endpoint handling admin authentication, login verification, and logout actions.
+ */
 require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/db.php';
 

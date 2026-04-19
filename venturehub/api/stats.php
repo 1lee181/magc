@@ -1,4 +1,10 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: API endpoint that dynamically fetches live club statistics (members, events, executives) from the database.
+ */
+
 // api/stats.php - Caden's dynamic stats fetcher
 header('Content-Type: application/json');
 require_once __DIR__ . '/../includes/config.php';

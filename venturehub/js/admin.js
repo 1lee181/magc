@@ -1,3 +1,10 @@
+
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Client-side logic for the secure admin dashboard, handling AJAX CRUD operations for events, partners, and executives. (BASE is defined inline in dashboard.php).
+ */
+
 /* ============================================================
    VentureHub - admin.js
    BASE is defined inline in dashboard.php before this loads

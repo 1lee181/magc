@@ -1,4 +1,10 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: API endpoint handling general member sign-ups, form submissions, and real-time duplicate email validation.
+ */
+
 // api/members.php - Gurehmat's sign-up form handler
 header('Content-Type: application/json');
 require_once __DIR__ . '/../includes/config.php';

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik , Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Main index page fetching all data for the MVCC single-page portal.
+ * Handles database queries for executives, past events, and partners.
+ */
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/auth.php';

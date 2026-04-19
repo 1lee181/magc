@@ -1,4 +1,9 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Secure admin panel interface for managing site content (events, partners, execs) dynamically.
+ */
 require_once __DIR__ . '/../../includes/config.php';
 require_once __DIR__ . '/../../includes/db.php';
 require_once __DIR__ . '/../../includes/auth.php';

@@ -1,3 +1,9 @@
+/*
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: SQL script to seed the executives table with the real 2026 MVCC team data.
+ */
+
 -- ============================================================
 -- Run this in phpMyAdmin to add/update the MVCC executive team
 -- Go to phpMyAdmin > select "venturehub" database > Import tab

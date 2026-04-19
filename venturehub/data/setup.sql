@@ -1,3 +1,9 @@
+/*
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Initial database schema creation and seed data insertion for VentureHub.
+ */
+
 -- ============================================================
 -- VentureHub Database Setup
 -- Run this in phpMyAdmin: Import tab > choose this file > Go

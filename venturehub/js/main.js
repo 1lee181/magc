@@ -1,3 +1,10 @@
+
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Client-side logic for the public VentureHub portal. Includes IntersectionObserver scroll-reveals, dynamic AJAX stats fetching, seamless animation loops, and form handling.
+ */
+
 /* ============================================================
    VentureHub - main.js
    Features:

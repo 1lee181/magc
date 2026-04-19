@@ -1,4 +1,9 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Admin authentication interface with secure bcrypt verification and session management.
+ */
 require_once __DIR__ . '/../../includes/config.php';
 if (session_status() === PHP_SESSION_NONE) session_start();
 

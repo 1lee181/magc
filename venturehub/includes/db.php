@@ -1,9 +1,15 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: PDO database connection singleton for secure MySQL interactions across the application.
+ */
+
 // Database configuration for server database
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'kolesnm_db');
-define('DB_USER', 'kolesnm_local');
-define('DB_PASS', '2oHN7n5-3S93jd_1');
+define('DB_NAME', 'venturehub');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 
 function getDB(): PDO
 {

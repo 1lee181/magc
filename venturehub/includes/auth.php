@@ -1,4 +1,9 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: Authentication helper functions for protecting admin routes and verifying active sessions.
+ */
 require_once __DIR__ . '/config.php';
 
 function requireAdmin(): void {

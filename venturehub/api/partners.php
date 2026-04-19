@@ -1,4 +1,10 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: API endpoint handling CRUD operations and display ordering for the partners and startups ribbon via AJAX.
+ */
+
 // api/partners.php - Matthew's partners/startups CRUD handler
 header('Content-Type: application/json');
 require_once __DIR__ . '/../includes/config.php';

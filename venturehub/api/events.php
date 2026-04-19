@@ -1,4 +1,9 @@
 <?php
+/**
+ * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
+ * Date: April 19, 2026
+ * Description: API endpoint handling CRUD (Create, Read, Update, Delete) operations for past events via AJAX.
+ */
 // api/events.php - Matthew's past events CRUD handler
 header('Content-Type: application/json');
 require_once __DIR__ . '/../includes/config.php';
