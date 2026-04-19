@@ -71,12 +71,12 @@ Default admin credentials:
 
 ## Team Feature Map
 
-| Feature                        | Owner    | Files                                      |
-|-------------------------------|----------|--------------------------------------------|
-| Club History & Stats           | Caden    | index.php (#history), js/main.js           |
-| Past Events + Admin Panel      | Matthew  | api/events.php, js/admin.js                |
-| Partners Ribbon + Admin Panel  | Matthew  | api/partners.php, js/admin.js              |
-| Admin Login + Session Guard    | Matthew  | api/auth.php, pages/admin/login.php        |
-| Member Sign-Up Form            | Gurehmat | api/members.php, js/main.js                |
-| Executive Cards + Admin Panel  | Aleesha  | api/executives.php, js/admin.js            |
-| Contact Us Section             | Aleesha  | index.php (#contact)                       |
+| Feature                        | Owner    | Files                                           |
+|-------------------------------|----------|--------------------------------------------------|
+| Club History & Stats           | Caden    | api/stats.php, index.php (#history), js/main.js |
+| Past Events + Admin Panel      | Matthew  | api/events.php, js/admin.js                     |
+| Partners Ribbon + Admin Panel  | Matthew  | api/partners.php, js/admin.js                   |
+| Admin Login + Session Guard    | Matthew  | api/auth.php, pages/admin/login.php             |
+| Member Sign-Up Form            | Gurehmat | api/members.php, js/main.js                     |
+| Executive Cards + Admin Panel  | Aleesha  | api/executives.php, js/admin.js                 |
+| Contact Us Section             | Aleesha  | index.php (#contact)                            |
