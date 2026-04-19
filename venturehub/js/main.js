@@ -35,32 +35,63 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.timeline-item').forEach(el => revealObserver.observe(el));
 
 // ── Stats counter (Caden) ───────────────────────────────────
-function animateCounter(el) {
-  const target   = parseInt(el.dataset.target, 10);
-  const duration = 1200;
-  const step     = target / (duration / 16);
-  let current    = 0;
-  const timer = setInterval(() => {
-    current += step;
-    if (current >= target) {
-      el.textContent = target + '+';
-      clearInterval(timer);
-    } else {
-      el.textContent = Math.floor(current);
-    }
-  }, 16);
-}
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.target, 10);
+    const duration = 1200;
+    const step     = target / (duration / 16);
+    let current    = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        el.textContent = target + '+';
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(current);
+      }
+    }, 16);
+  }
 
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      statsObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log("Animation triggered for: " + entry.target.id);
+        animateCounter(entry.target);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
 
-document.querySelectorAll('.stat-num[data-target]').forEach(el => statsObserver.observe(el));
+  console.log("Attempting to fetch live stats from the database...");
+  
+  fetch(BASE + '/api/stats.php')
+    .then(response => {
+      if (!response.ok) throw new Error("Server returned " + response.status);
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        console.log("Success! Database returned:", data.stats);
+        
+        const memberStat = document.getElementById('stat-members');
+        const eventStat  = document.getElementById('stat-events');
+        const execStat   = document.getElementById('stat-execs');
+
+        // Swap the HTML targets with the live database counts
+        if(memberStat) memberStat.setAttribute('data-target', data.stats.members);
+        if(eventStat)  eventStat.setAttribute('data-target', data.stats.events);
+        if(execStat)   execStat.setAttribute('data-target', data.stats.executives);
+      } else {
+        console.error("PHP Error:", data.error);
+      }
+      
+      // Tell the browser to start watching the numbers for the scroll animation
+      document.querySelectorAll('.stat-num[data-target]').forEach(el => statsObserver.observe(el));
+    })
+    .catch(err => {
+      console.error("AJAX Failed completely:", err);
+      // Fallback: If fetch fails, animate the hardcoded numbers anyway so the page isn't broken
+      document.querySelectorAll('.stat-num[data-target]').forEach(el => statsObserver.observe(el));
+    });
 
 // ── Seamless ribbon (Matthew) ───────────────────────────────
 // Strategy: clone items until the FIRST HALF of the track is wider than

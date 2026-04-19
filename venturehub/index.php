@@ -99,43 +99,43 @@ $ribbonItems = array_merge($partners, $partners);
 
       <div class="stats-row">
         <div class="stat-box">
-          <span class="stat-num" data-target="100">100</span>
+          <span class="stat-num" id="stat-members" data-target="100">0</span>
           <div class="stat-label">General Members</div>
         </div>
         <div class="stat-box">
-          <span class="stat-num" data-target="7">7</span>
-          <div class="stat-label">Executives</div>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num" data-target="4">4</span>
-          <div class="stat-label">Analysts</div>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num" data-target="5">5</span>
+          <span class="stat-num" data-target="5">0</span>
           <div class="stat-label">Years Active</div>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" id="stat-events" data-target="30">0</span>
+          <div class="stat-label">Events Hosted</div>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" id="stat-execs" data-target="7">0</span>
+          <div class="stat-label">Executives</div>
         </div>
       </div>
 
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-year">Year 1</div>
-          <div class="timeline-text">Founded by 4 students. First pitch night hosted.</div>
+          <div class="timeline-text">Forge/Innovation Factory partnerships, MVCC x Forge coaching system, structured scouting + newsletter engine, sponsorships (seed capital base), 10+ startups coached, 1–2 case comps, Waterloo VG ties, 1000+ followers</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 2</div>
-          <div class="timeline-text">Grew to 50 members. First corporate partner onboarded.</div>
+          <div class="timeline-text">Formal deal pipeline + investment memo system, first $5–10k angel facilitation / micro-investments (alumni/sponsor-backed), VC Summit, VC partnerships, 20+ startups coached, 2–3 deals</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 3</div>
-          <div class="timeline-text">Ran 3 investor panels. Expanded exec team to 10.</div>
+          <div class="timeline-text">Scale structured deal flow (30+ startups), launch angel syndicate (10–15 HNIs), national case competition, transition into repeatable investment process, 3–5 investments</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 4</div>
-          <div class="timeline-text">Launched startup mentorship program. Reached 100+ members.</div>
+          <div class="timeline-text">Expand into deal-scouting model for VC funds, global VC partnerships (Sequoia/a16z), strengthen alumni capital + VC/IB pipeline, newsletter becomes sourcing channel, 5–7 deals, 1000+ subs</div>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Year 5</div>
-          <div class="timeline-text">VentureHub portal launched. 100+ general members, 7 executives, and 4 analysts.</div>
+          <div class="timeline-text">MVCC Fund I ($250K–$500K) institutionalized microfund, formal investment committee + portfolio system, 10+ portfolio startups, national VC summit, international student VC partnerships</div>
         </div>
       </div>
     </div>
@@ -147,7 +147,7 @@ $ribbonItems = array_merge($partners, $partners);
   <section id="events" class="section section-alt">
     <div class="section-inner">
       <div class="section-label">What We Have Built</div>
-      <h2 class="section-title"><em>Past</em> Events</h2>
+      <h2 class="section-title"><em>Past & Future</em> Events</h2>
       <p class="section-lead">A look at the rooms we have created over the years.</p>
 
       <?php if (empty($events)): ?>
