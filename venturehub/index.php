@@ -306,9 +306,9 @@ $ribbonItems = array_merge($partners, $partners);
   <div class="section-label">Say Hello</div>
   <h2 class="section-title"><em>Get</em> In Touch</h2>
   <p>Have a question or want to get involved? Send us an email.</p>
-  <a href="mailto:mvcc@mcmaster.ca" class="btn btn-gold">Contact Us</a>
+  <a href="mailto:mvcc.connect@gmail.com" class="btn btn-gold">Contact Us</a>
   <div class="contact-links">
-    <a href="mailto:mvcc@mcmaster.ca">mvcc@mcmaster.ca</a>
+    <a href="mailto:mvcc.connect@gmail.com">mvcc.connect@gmail.com</a>
     <span style="opacity:0.3;">|</span>
     <a href="https://www.instagram.com/macventurecapital" target="_blank">instagram.com/macventurecapital</a>
     <span style="opacity:0.3;">|</span>
