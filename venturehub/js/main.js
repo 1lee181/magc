@@ -44,6 +44,14 @@ window.addEventListener('load', () => {
   document.querySelectorAll('.timeline-item').forEach(el => revealObserver.observe(el));
 
   // ── Stats counter (Caden) ───────────────────────────────────
+
+  /**
+ * Animates a counter element from 0 up to its data-target value.
+ *
+ * @param {HTMLElement} el - The element whose data-target attribute holds the final number.
+ * @returns {void}
+ */
+
   function animateCounter(el) {
     const target = parseInt(el.dataset.target, 10);
     const duration = 1200;
@@ -106,12 +114,27 @@ window.addEventListener('load', () => {
   // Strategy: clone items until the FIRST HALF of the track is wider than
   // the viewport. Then the snap from pos>=halfW back to 0 is always
   // within the first set, so the viewer never sees a gap.
+
+  /**
+  * Initialises the seamless partner ribbon animation.
+  * Clones ribbon items to fill the track, then starts a requestAnimationFrame
+  * loop that continuously scrolls the track, pausing on mouse hover.
+  *
+  * @returns {void}
+  */
   (function initRibbon() {
     const track = document.getElementById('ribbonTrack');
     if (!track) return;
 
     // Step 1: clone all existing items to fill out the track
     // We'll keep doubling until the natural (pre-transform) width > 3 × window
+
+    /**
+    * Clones ribbon items until the track is at least 3x the viewport width,
+    * ensuring the seamless loop never shows a gap.
+    *
+    * @returns {void}
+    */
     function fillTrack() {
       const originals = Array.from(track.children);
       if (originals.length === 0) return;
@@ -130,6 +153,12 @@ window.addEventListener('load', () => {
     let paused = false;
     let halfW = 0;
 
+    /**
+    * Measures half the ribbon track's total scroll width and stores it in halfW.
+    * Used as the loop reset point for the seamless animation.
+    *
+    * @returns {void}
+    */
     function measure() {
       // halfW = half the scrollWidth = one "natural" set length.
       // Since we've cloned to 3×+ viewport, the first half always covers viewport.
@@ -140,6 +169,12 @@ window.addEventListener('load', () => {
     track.addEventListener('mouseenter', () => { paused = true; });
     track.addEventListener('mouseleave', () => { paused = false; });
 
+    /**
+    * Animation loop that advances the ribbon position each frame using
+    * requestAnimationFrame, resetting to 0 when halfW is reached for a seamless loop.
+    *
+    * @returns {void}
+    */
     function tick() {
       if (halfW === 0) measure();
 
@@ -179,6 +214,15 @@ window.addEventListener('load', () => {
 
       // Two base vertices: rotate nx,ny by ±70 degrees, project far outside image
       const angle = 70 * Math.PI / 180;
+      
+      /**
+      * Rotates a 2D vector by a given angle using standard rotation matrix math.
+      *
+      * @param {Number} vx - The x component of the vector to rotate.
+      * @param {Number} vy - The y component of the vector to rotate.
+      * @param {Number} a - The rotation angle in radians.
+      * @returns {Array} A two-element array [x, y] of the rotated vector.
+      */
       function rotated(vx, vy, a) {
         return [vx * Math.cos(a) - vy * Math.sin(a), vx * Math.sin(a) + vy * Math.cos(a)];
       }
@@ -296,6 +340,13 @@ window.addEventListener('load', () => {
     });
   }
 
+  /**
+ * Displays a status message inside the sign-up form alert box.
+ *
+ * @param {string} msg - The message text to display.
+ * @param {string} type - The alert style, either 'success' or 'error'.
+ * @returns {void}
+ */
   function showFormAlert(msg, type) {
     formAlert.textContent = msg;
     formAlert.className = 'form-alert ' + type;

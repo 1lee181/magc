@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
  * Date: April 19, 2026
@@ -40,7 +41,10 @@ if ($method === 'POST') {
 
         case 'insert':
             $name = trim($_POST['name'] ?? '');
-            if (!$name) { echo json_encode(['success' => false, 'error' => 'Name required.']); exit; }
+            if (!$name) {
+                echo json_encode(['success' => false, 'error' => 'Name required.']);
+                exit;
+            }
 
             $stmt = getDB()->prepare(
                 'INSERT INTO executives (name, role, bio, photo_url, linkedin_url, instagram_url, display_order)
@@ -61,7 +65,10 @@ if ($method === 'POST') {
         case 'update':
             $id   = (int)($_POST['id']   ?? 0);
             $name = trim($_POST['name']  ?? '');
-            if (!$id || !$name) { echo json_encode(['success' => false, 'error' => 'Invalid data.']); exit; }
+            if (!$id || !$name) {
+                echo json_encode(['success' => false, 'error' => 'Invalid data.']);
+                exit;
+            }
 
             $stmt = getDB()->prepare(
                 'UPDATE executives SET name=?, role=?, bio=?, photo_url=?, linkedin_url=?, instagram_url=?, display_order=?
@@ -82,7 +89,10 @@ if ($method === 'POST') {
 
         case 'delete':
             $id = (int)($_POST['id'] ?? 0);
-            if (!$id) { echo json_encode(['success' => false, 'error' => 'Invalid ID.']); exit; }
+            if (!$id) {
+                echo json_encode(['success' => false, 'error' => 'Invalid ID.']);
+                exit;
+            }
             getDB()->prepare('DELETE FROM executives WHERE id = ?')->execute([$id]);
             echo json_encode(['success' => true]);
             break;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Name: Caden Chan, Matthew Kolesnik, Gurehmat Chahal, Aleesha Abdullah
  * Date: April 19, 2026
@@ -16,7 +17,10 @@ switch ($action) {
 
     case 'check_email':
         $email = trim($_POST['email'] ?? '');
-        if (!$email) { echo json_encode(['taken' => false]); exit; }
+        if (!$email) {
+            echo json_encode(['taken' => false]);
+            exit;
+        }
 
         $stmt = getDB()->prepare('SELECT id FROM members WHERE email = ? LIMIT 1');
         $stmt->execute([$email]);
@@ -30,12 +34,22 @@ switch ($action) {
         $year    = (int)($_POST['year']   ?? 0);
 
         // Server-side validation
-        if (!$name)  { echo json_encode(['success' => false, 'error' => 'Name is required.']);    exit; }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo json_encode(['success' => false, 'error' => 'Invalid email address.']); exit;
+        if (!$name) {
+            echo json_encode(['success' => false, 'error' => 'Name is required.']);
+            exit;
         }
-        if (!$program) { echo json_encode(['success' => false, 'error' => 'Program is required.']); exit; }
-        if ($year < 1 || $year > 5) { echo json_encode(['success' => false, 'error' => 'Invalid year.']); exit; }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(['success' => false, 'error' => 'Invalid email address.']);
+            exit;
+        }
+        if (!$program) {
+            echo json_encode(['success' => false, 'error' => 'Program is required.']);
+            exit;
+        }
+        if ($year < 1 || $year > 5) {
+            echo json_encode(['success' => false, 'error' => 'Invalid year.']);
+            exit;
+        }
 
         // Check duplicate
         $chk = getDB()->prepare('SELECT id FROM members WHERE email = ? LIMIT 1');

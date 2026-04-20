@@ -15,6 +15,14 @@
 window.addEventListener('load', () => {
 
     // ── Generic AJAX POST helper ────────────────────────────────
+
+    /**
+    * Sends a POST request to a given API endpoint using FormData.
+     *
+    * @param {String} url - The API endpoint URL to post to.
+    * @param {Object} data - Key-value pairs to append to the FormData body.
+    * @returns {Promise} A promise that resolves to the parsed JSON response.
+    */
     function apiPost(url, data) {
         const fd = new FormData();
         Object.entries(data).forEach(([k, v]) => fd.append(k, v ?? ''));
@@ -22,6 +30,13 @@ window.addEventListener('load', () => {
     }
 
     // ── Flash message ───────────────────────────────────────────
+    /**
+    * Displays a temporary flash notification message on the page.
+    *
+    * @param {String} msg - The message text to display.
+    * @param {String} type - The alert style, either 'success' or 'error'.
+    * @returns {void}
+    */
     function flash(msg, type = 'success') {
         const el = document.getElementById('flashMsg');
         if (!el) return;
@@ -32,11 +47,24 @@ window.addEventListener('load', () => {
         setTimeout(() => { el.style.display = 'none'; }, 4000);
     }
 
+    /**
+    * Prompts the user with a confirmation dialog before a delete action.
+    *
+    * @param {String} msg - The confirmation message to show the user.
+    * @returns {Boolean} True if the user confirmed, false if they cancelled.
+    */
     function confirmDelete(msg) {
         return confirm(msg || 'Are you sure you want to delete this?');
     }
 
     // XSS escape
+
+    /**
+    * Escapes a string to make it safe for insertion into HTML.
+    *
+    * @param {String} str - The raw string to escape.
+    * @returns {String} The HTML-escaped string with special characters replaced.
+    */
     function esc(str) {
         return String(str)
             .replace(/&/g, '&amp;')
@@ -57,12 +85,23 @@ window.addEventListener('load', () => {
         const formTitle = document.getElementById('eventFormTitle');
         const cancelBtn = document.getElementById('eventCancel');
 
+        /**
+        * Fetches all events from the API and passes them to renderEvents.
+        *
+        * @returns {void}
+        */
         function loadEvents() {
             fetch(BASE + '/api/events.php?action=list')
                 .then(r => r.json())
                 .then(data => renderEvents(data.events || []));
         }
 
+        /**
+        * Renders the list of events into the events table body.
+        *
+        * @param {Array} events - Array of event objects returned from the API.
+        * @returns {void}
+        */
         function renderEvents(events) {
             if (!events.length) {
                 tbody.innerHTML = '<tr><td colspan="4" style="color:#999;padding:1rem;">No events yet.</td></tr>';
@@ -127,6 +166,11 @@ window.addEventListener('load', () => {
 
         if (cancelBtn) cancelBtn.addEventListener('click', resetEventForm);
 
+        /**
+        * Resets the event form back to its default empty 'Add New Event' state.
+        *
+        * @returns {void}
+        */
         function resetEventForm() {
             form.reset();
             idInput.value = '';
@@ -149,12 +193,25 @@ window.addEventListener('load', () => {
         const formTitle = document.getElementById('partnerFormTitle');
         const cancelBtn = document.getElementById('partnerCancel');
 
+
+        /**
+         * Fetches all partners from the API and passes them to renderPartners.
+         *
+         * @returns {void}
+         */
+
         function loadPartners() {
             fetch(BASE + '/api/partners.php?action=list')
                 .then(r => r.json())
                 .then(data => renderPartners(data.partners || []));
         }
 
+        /**
+        * Renders the list of partners into the partners table body.
+        *
+        * @param {Array} partners - Array of partner objects returned from the API.
+        * @returns {void}
+        */
         function renderPartners(partners) {
             if (!partners.length) {
                 tbody.innerHTML = '<tr><td colspan="4" style="color:#999;padding:1rem;">No partners yet.</td></tr>';
@@ -219,6 +276,11 @@ window.addEventListener('load', () => {
 
         if (cancelBtn) cancelBtn.addEventListener('click', resetPartnerForm);
 
+        /**
+        * Resets the partner form back to its default empty 'Add New Partner' state.
+        *
+        * @returns {void}
+        */
         function resetPartnerForm() {
             form.reset();
             idInput.value = '';
@@ -241,11 +303,22 @@ window.addEventListener('load', () => {
         const formTitle = document.getElementById('execFormTitle');
         const cancelBtn = document.getElementById('execCancel');
 
+        /**
+        * Fetches all executives from the API and passes them to renderExecs.
+        *
+        * @returns {void}
+        */
         function loadExecs() {
             fetch(BASE + '/api/executives.php?action=list')
                 .then(r => r.json())
                 .then(data => renderExecs(data.executives || []));
         }
+        /**
+        * Renders the list of executives into the executives table body.
+        *
+        * @param {Array} execs - Array of executive objects returned from the API.
+        * @returns {void}
+        */
 
         function renderExecs(execs) {
             if (!execs.length) {
@@ -315,6 +388,11 @@ window.addEventListener('load', () => {
 
         if (cancelBtn) cancelBtn.addEventListener('click', resetExecForm);
 
+        /**
+        * Resets the executive form back to its default empty 'Add New Executive' state.
+        *
+        * @returns {void}
+        */
         function resetExecForm() {
             form.reset();
             idInput.value = '';

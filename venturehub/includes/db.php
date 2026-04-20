@@ -11,6 +11,17 @@ define('DB_NAME', 'venturehub');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
+
+/**
+ * Returns a shared PDO database connection using the singleton pattern.
+ * On the first call, establishes a connection to the MySQL database using
+ * the defined DB_HOST, DB_NAME, DB_USER, and DB_PASS constants. On all
+ * subsequent calls, returns the same connection instance. If the connection
+ * fails, responds with HTTP 500 and a JSON error message, then exits.
+ *
+ * @return PDO The active PDO connection instance.
+ */
+
 function getDB(): PDO
 {
     static $pdo = null;
