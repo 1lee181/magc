@@ -27,20 +27,6 @@ This creates the `venturehub` database with all 5 tables and sample data.
 
 ---
 
-## 3. Open the site
-
-Public site:   http://localhost/venturehub/
-Admin login:   http://localhost/venturehub/pages/admin/login.php
-
-Default admin credentials:
-- Username: `admin`
-- Password: `password`
-
-> Change the password hash in setup.sql before deploying anywhere.
-> Generate a new hash with: `echo password_hash('yourpassword', PASSWORD_DEFAULT);`
-
----
-
 ## File Structure
 
     venturehub/
