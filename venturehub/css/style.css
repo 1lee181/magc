@@ -1001,6 +1001,28 @@ footer {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ═══════════════════════════════════════════
+   RESPONSIVE — tablet (≤1100px)
+═══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  #hero { min-height: auto; overflow: hidden; padding: 0 1.5rem; }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .hero-left  { padding: 4rem 0 2rem; }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 3rem;
+  }
+
+  .hero-frame-wrap { max-width: 300px; width: 100%; }
+}
+
+/* ═══════════════════════════════════════════
    RESPONSIVE — tablet (≤900px)
 ═══════════════════════════════════════════ */
 @media (max-width: 900px) {
@@ -1029,7 +1051,16 @@ footer {
   .hero-inner { grid-template-columns: 1fr; padding: 0; }
   .hero-left  { padding: 4rem 0 2.5rem; }
   .hero-title { font-size: clamp(2.4rem, 10vw, 4.5rem); }
-  .hero-right { display: none; }
+  .hero-right { 
+    display: flex;
+    justify-content: center;
+    padding: 0 0 3rem; 
+  }
+
+  .hero-frame-wrap {
+    max-width: 280px;
+    width: 100%;
+  }
 
   /* Stats: 2-col grid */
   .stats-row { grid-template-columns: repeat(2, 1fr); }
