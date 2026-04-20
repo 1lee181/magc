@@ -459,7 +459,7 @@ img { max-width: 100%; display: block; }
   display: block;
   font-family: 'Cormorant Garamond', serif;
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: 700;
   color: var(--maroon);
   line-height: 1;
   margin-bottom: 0.4rem;
@@ -517,6 +517,7 @@ img { max-width: 100%; display: block; }
   padding-top: 0.1rem;
   text-align: right;
   padding-right: 1.2rem;
+  font-weight: 600;
   position: relative;
   z-index: 1;
 }
@@ -1003,6 +1004,7 @@ footer {
 
   .hero-inner {
     grid-template-columns: 1fr;
+    min-height: auto;
     padding: 0;
   }
 
@@ -1014,7 +1016,17 @@ footer {
     padding: 0 0 3rem;
   }
 
-  .hero-frame-wrap { max-width: 300px; width: 100%; }
+  .hero-frame-wrap {
+  max-width: 100%;        
+  width: 100%;
+  padding-right: 12px;
+  padding-bottom: 12px;
+}
+
+.hero-portrait {
+  max-width: 100%;
+  aspect-ratio: 16 / 9;  /* landscape fills width without being too tall */
+}
 }
 
 /* ═══════════════════════════════════════════
@@ -1103,5 +1115,5 @@ footer {
   .btn          { width: 100%; text-align: center; }
 
   /* Hide image entirely on small phones to keep hero tight */
-  .hero-right   { display: none; }
+  .hero-right   { display: flex; }
 }
